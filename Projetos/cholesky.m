@@ -28,7 +28,7 @@ function [A, Det, CondErro] = cholesky (n, A)
   Det = 1;
   for j = 1 : n
     Soma = 0;
-    for k = 1 : j-1;
+    for k = 1 : j-1
       Soma = Soma + A(j,k)^2;
     endfor
     t = A(j,j) - Soma;
