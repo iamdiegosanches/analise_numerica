@@ -24,7 +24,12 @@
 
 function result = A1_Q1 ()
   x = input('Digite o valor de x: ');
+  if x > 1 || x < -1
+    disp('Invalido. O |x| < 1.');
+    return;
+  endif
   n = input('Digite o número de termos (n): ');
+
   result = x;
 
   for i = 2 : n
