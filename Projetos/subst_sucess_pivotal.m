@@ -1,4 +1,4 @@
-## Copyright (C) 2023 Diego
+## Copyright (C) 2023 Diego Sanches Nere dos Santos
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Diego
+## Author: Diego Sanches Nere dos Santos
 ## Created: 2023-05-23
 
 function y = subst_sucess_pivotal (n, L, b, Pivot)
@@ -29,11 +29,10 @@ function y = subst_sucess_pivotal (n, L, b, Pivot)
   y(1) = b(k);
   for i = 2 : n
     Soma = 0;
-    for j = 1 : n-1
+    for j = 1 : i-1
       Soma = Soma + L(i,j) * y(j);
     endfor
     k = Pivot(i);
     y(i) = b(k) - Soma;
   endfor
-
 endfunction
