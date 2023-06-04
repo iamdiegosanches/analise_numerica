@@ -15,7 +15,7 @@
 
 ## -*- texinfo -*-
 ## Objetivo
-## @deftypefn {} {[@var{A}, @var{Det}, @var{Pivot}] =} decomposicao_LU (@var{A})
+## @deftypefn {} {[@var{A}, @var{Det}, @var{Pivot}] =} decomposicao_LU (@var{n}, @var{A})
 ##
 ## @seealso{}
 ## @end deftypefn
@@ -23,8 +23,7 @@
 ## Author: Diego Sanches Nere dos Santos
 ## Created: 2023-05-25
 
-function [A, Det, Pivot] = decomposicao_LU (A)
-  n = size(A,1);
+function [A, Det, Pivot] = decomposicao_LU (n, A)
   for i = 1 : n
     Pivot(i) = i;
   endfor

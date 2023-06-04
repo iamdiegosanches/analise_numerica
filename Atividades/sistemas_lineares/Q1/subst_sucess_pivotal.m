@@ -16,7 +16,7 @@
 ## -*- texinfo -*-
 ## Objetivo: Resolver o sistema triangula inferior Ly = Pb pelas substituicoes sucessivas
 ## com a matriz L obtida de decomposicao LU com pivotacao parcial
-## @deftypefn {} {@var{y} =} subst_sucess_pivotal (@var{L}, @var{b}, @var{Pivot})
+## @deftypefn {} {@var{y} =} subst_sucess_pivotal (@var{n}, @var{L}, @var{b}, @var{Pivot})
 ##
 ## @seealso{}
 ## @end deftypefn
@@ -24,8 +24,7 @@
 ## Author: Diego Sanches Nere dos Santos
 ## Created: 2023-05-23
 
-function y = subst_sucess_pivotal (L, b, Pivot)
-  n = size(L, 1);
+function y = subst_sucess_pivotal (n, L, b, Pivot)
   k = Pivot(1);
   y(1) = b(k);
   for i = 2 : n
