@@ -1,4 +1,4 @@
-## Copyright (C) 2023 aluno
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -19,10 +19,11 @@
 ## @seealso{}
 ## @end deftypefn
 
-## Author: aluno <aluno@LI1-150814>
+## Author: Diego Sanches
 ## Created: 2023-05-23
 
 function [x, Iter, CondErro] = SOR (A, b, Omega, Toler, IterMax)
+    n = size(A,1);
     for i = 1 : n
       r = 1/A(i,i);
       for j = 1 : n
@@ -34,7 +35,7 @@ function [x, Iter, CondErro] = SOR (A, b, Omega, Toler, IterMax)
       x(i) = b(i);
     endfor
     Iter = 0;
-    while
+    while 1
       Iter = Iter + 1;
       for i = 1 : n
         Soma = 0;
