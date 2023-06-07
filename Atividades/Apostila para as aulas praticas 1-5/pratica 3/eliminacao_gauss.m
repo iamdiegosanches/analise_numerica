@@ -1,4 +1,4 @@
-## Copyright (C) 2023 Diego Sanches Nere dos Santos
+## Copyright (C) Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,20 +14,20 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## Objetivo
-## @deftypefn {} {[@var{A}, @var{Det}, @var{Pivot}] =} decomposicao_LU (@var{n}, @var{A})
-##
+## Objetivo: Fazer a eliminacao de Gauss do sistema Ax = b
+## @deftypefn {} {[@var{A}, @var{b}, @var{Det}, @var{Info}] =} eliminacao_gauss (@var{n}, @var{A}, @var{b})
+## Entrada: ordem, matriz dos coeficientes e vetor dos termos independentes
+## Saida: matriz U, vetor transformado, determinante e informacao sobre a singularidade de
+## A, sendo Info = 0: matriz nao singular, e info = k: menor k tal que u_kk = 0
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Diego Sanches Nere dos Santos
-## Created: 2023-05-25
+## Author: Diego Sanches
+## Created: 2023-05-28
 
-function [A, Det, Pivot] = decomposicao_LU (n, A)
-  for i = 1 : n
-    Pivot(i) = i;
-  endfor
+function [A, b, Det, Info] = eliminacao_gauss (n, A, b)
   Det = 1;
+  Info = 0;
   for j = 1 : n-1
     p = j;
     Amax = abs(A(j,j));
@@ -43,22 +43,31 @@ function [A, Det, Pivot] = decomposicao_LU (n, A)
         A(j,k) = A(p,k);
         A(p,k) = t;
       endfor
-      m = Pivot(j);
-      Pivot(j) = Pivot(p);
-      Pivot(p) = m;
+      t = b(j);
+      b(j) = b(p);
+      b(p) = t;
       Det = -Det;
     endif
     Det = Det * A(j,j);
+    # eliminacao de gauss
     if abs(A(j,j)) ~= 0
       r = 1/A(j,j);
       for i = j+1 : n
         Mult = A(i,j) * r;
-        A(i,j) = Mult;
+        A(i,j) = 0;
         for k = j+1 : n
-          A(i,k) = A(i,k) - Mult * A(j,k);
+          A(i,k) = A(i,k) - Mult*A(j,k);
         endfor
+        b(i) = b(i) - Mult*b(j);
       endfor
+    else
+      if Info == 0
+        Info = j;
+      endif
     endif
   endfor
-  Det = Det * A(n,n);
+  Det = Det*A(n,n);
+  if Info == 0 && abs(A(n,n)) == 0
+    Info = nn = 4;
+  endif
 endfunction

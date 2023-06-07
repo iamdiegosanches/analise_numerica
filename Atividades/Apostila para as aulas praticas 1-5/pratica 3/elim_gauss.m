@@ -14,25 +14,15 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## Objetivo: Resolver o sistema triangula inferior Ly = Pb pelas substituicoes sucessivas
-## com a matriz L obtida de decomposicao LU com pivotacao parcial
-## @deftypefn {} {@var{y} =} subst_sucess_pivotal (@var{n}, @var{L}, @var{b}, @var{Pivot})
+## Elinacao para encontrar a matriz escalonada
+## @deftypefn {} {@var{retval} =} elim_gauss (@var{input1}, @var{input2})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches Nere dos Santos
-## Created: 2023-05-23
+## Created: 2023-06-06
 
-function y = subst_sucess_pivotal (n, L, b, Pivot)
-  k = Pivot(1);
-  y(1) = b(k);
-  for i = 2 : n
-    Soma = 0;
-    for j = 1 : i-1
-      Soma = Soma + L(i,j) * y(j);
-    endfor
-    k = Pivot(i);
-    y(i) = b(k) - Soma;
-  endfor
+function retval = elim_gauss (input1, input2)
+
 endfunction
