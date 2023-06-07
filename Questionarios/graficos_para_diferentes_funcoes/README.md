@@ -1,1 +1,0 @@
-# analise_numerica
