@@ -1,4 +1,4 @@
-## Copyright (C) 2023 aluno
+## Copyright (C) 2023 Diego
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,30 +14,23 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{A}, @var{Det} =} decomposicao_LDL (@var{n}, @var{A})
+## Objetivo: solucionar sistema linear utilizando o metodo de docomposicao LDL'
+## Requisitos: funcao de decomposicao_LDL, substituicao retroativas e sucessivas
+## @deftypefn {} {@var{x} =} sol_decomp_LDL (@var{A}, @var{b})
 ##
 ## @seealso{}
 ## @end deftypefn
 
-## Author: aluno <aluno@LI1-150814>
-## Created: 2023-05-23
+## Author: Diego
+## Created: 2023-06-07
 
-function [A, Det] = decomposicao_LDL (n, A)
-    Det = 1;
-    for j = 1 : n
-       Soma = 0;
-       for k = 1 : j-1
-         Soma = Soma + A(j,k)^2 * A(k,k);
-       endfor
-       A(j,j) = A(j,j) - Soma;
-       r = 1/A(j,j);
-       Det = Det*A(j,j);
-       for i = j+1 : n
-         Soma  = 0;
-         for k = 1 : j-1
-           Soma = Soma + A(i,k)*A(k,k)*A(j,k);
-         endfor
-         A(i,j) = (A(i,j) - Soma)*r;
-       endfor
-    endfor
+function x = sol_decomp_LDL (A, b)
+  [R, Det] = decomposicao_LDL (A);
+  L = eye(size(R,1)) + tril(R,-1);
+  D = eye(size(R)).*diag(R);
+  y = subst_sucess(L, b);
+  for i = 1 : size(R,1)
+      t(i)=y(i)/D(i,i);
+  endfor
+  x = subst_retro(L', t');
 endfunction

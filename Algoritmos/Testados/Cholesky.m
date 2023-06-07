@@ -1,4 +1,4 @@
-## Copyright (C) 2023 Diego Sanches Nere dos Santos
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,15 +14,16 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{A}, @var{Det}, @var{Info} =} Cholesky (@var{n}, @var{A})
+## @deftypefn {} {@var{A}, @var{Det}, @var{Info} =} Cholesky (@var{A})
 ##
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Diego Sanches Nere dos Santos
+## Author: Diego Sanches
 ## Created: 2023-05-23
 
-function [A, Det, Info] = Cholesky (n, A)
+function [A, Det, Info] = Cholesky (A)
+    n = size(A, 1);
     Info  = 0;
     Det = 1;
     for j = 1 : n

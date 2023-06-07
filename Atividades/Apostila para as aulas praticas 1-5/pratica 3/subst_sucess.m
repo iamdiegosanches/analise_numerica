@@ -47,9 +47,9 @@ function x = subst_sucess (L, c)
         x(i) = (c(i) - soma) / L(i, i);
       endfor
     else
-      printf('A matriz L não é triangular inferior.');
+      printf('a matriz L não é triangular inferior.\n');
     endif
   else
-    printf('As dimensões da matriz L ou vetor c são inválidas.');
+    printf('as dimensões da matriz L ou vetor c são inválidas.\n');
   endif
 endfunction
