@@ -1,4 +1,4 @@
-## Copyright (C) 2023 aluno
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,60 +14,53 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{x}, @var{Iter}, @var{CondErro} =} jacobi (@var{n}, @var{A}, @var{b}, @var{Toler}, @var{IterMax})
+## @deftypefn {} {@var{x}, @var{Iter}, @var{Info} =} jacobi (@var{n}, @var{A}, @var{b}, @var{Toler}, @var{IterMax})
 ##
 ## @seealso{}
 ## @end deftypefn
 
-## Author: aluno <aluno@LI1-150814>
+## Author: Diego Sanches
 ## Created: 2023-05-23
 
-function [x, Iter, CondErro] = jacobi (n, A, b, Toler, IterMax)
-    for i = 1: n
-      r = 1/A(i,i);
+function [x, Iter, Info] = jacobi (n, A, b, Toler, IterMax)
+  for i = 1 : n
+    x(i) = b(i)/A(i,i);
+  endfor
+  Iter = 0;
+  while 1
+    Iter = Iter + 1;
+    for j = 1 : n
+      Soma = 0;
       for j = 1 : n
         if i ~= j
-          A(i,j) = A(i,j)*r;
+          Soma = Soma + A(i,j)*x(j);
         endif
-        b(i) = b(i)*r;
-        x(i) = b(i);
       endfor
+      v(i) = (b(i) - Soma)/A(i,i);
     endfor
-    Iter = 0;
-    while
-      Iter = Iter + 1;
-      for i = 1: n
-        Soma = 0;
-        for j = 1 : n
-          if i ~= j
-            Soma = Soma + A(i,j)*x(j);
-          endif
-        endfor
-        v(i) = b(i) - Soma;
-      endfor
-      Normanum = 0;
-      NormaDen = 0;
-      for i = 1 : n
-        t = abs(v(i) - x(i));
-        if t > Normanum
-          Normanum = t;
-        endif
-        if abs(v(i)) > NormaDen
-          NormaDen = abs(v(i));
-        endif
-        x(i) = v(i);
-      endfor
-      NormaRel = Normanum/NormaDen;
-      disp(Iter);
-      disp(x);
-      disp(NormaRel);
-      if NormaRel <= Toler || Iter >= IterMax
-        break
+    NormaNum = 0;
+    NormaDen = 0;
+    for i = 1 : n
+      t = abs(v(i) - x(i));
+      if t > NormaNum
+        NormaNum = y;
       endif
-    endwhile
-    if NormaRel <= Toler
-      CondErro = 0;
-    else
-      CondErro = 1;
+      if abs(v(i)) > NormaDen
+        NormaDen = abs(v(i));
+      endif
+      x(i) = v(i);
+    endfor
+    NormaRel = NormaNum/NormaDen;
+    disp(Iter);
+    disp(x);
+    disp(NormaRel);
+    if NormaRel <= Toler || Iter >= IterMax
+      break;
     endif
+  endwhile
+  if NormaRel <= Toler
+    Info = 0;
+  else
+    Info = 1;
+  endif
 endfunction
