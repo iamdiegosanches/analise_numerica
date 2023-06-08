@@ -1,3 +1,15 @@
-# Enunciado da função
+# Enunciado da questão
 
-Faça um programa que imprima um gráfico com quatro curvas diferentes para a função 9*sin(x^1)*9*cos(x^10)8*(t^1)*8*x^10 . Sendo que deverá ter 4 valores de t igualmente espaçados entre [2.55,4.55]  e para cada valor de t será uma curva e o valor de x deverá ter 50 pontos variando entre [-4.13,12.39]. Com a curva na cor magenta e o marcador de cruzinha.
+Faça um programa que verifique se o sistema linear tem solução, caso tenha o programa deve verificar se é possível resolver pelo método proposto se sim deve determinar a solução, se não deve informar ao usuário que não é possível resolver o sistema pelo método selecionado.
+
+Cholesky
+
+               45.04X1-14.64X2+2.06X3+5.69X4-12.65X5=-11.80
+
+               -14.64X1+39.50X2+3.73X3+5.68X4+12.45X5=14.68
+
+               2.06X1+3.73X2+33.21X3+14.01X4-9.41X5=-14.20
+
+               5.69X1+5.68X2+14.01X3+33.41X4+5.03X5=-7.76
+
+               -12.65X1+12.45X2-9.41X3+5.03X4+40.54X5=-16.57
