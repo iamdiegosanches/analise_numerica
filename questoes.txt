@@ -1,0 +1,26 @@
+Faça um programa que imprima as curvas (x,y) dadas por cada uma das funções lineares, em um mesmo gráfico. E imprima todos os gráficos de todos os sistemas lineares na mesma figura. O programa deve dizer ainda qual dos sistemas lineares tem solução.
+
+1)
+17x +16y = 1
+-3x + 16y = -13
+
+2)
+10x + 17y = -15
+5x + 11y = 9
+
+3)
+8x + 10y = 22
+2x + 4y = -13
+
+4)
+1x + -1y = 12
+12x + 4y = -14
+
+
+Faça um progrma que teste com 1000 pares de matrizes criadas aleatoriamente a propriedade (A + B)^T = A^T + B^T . O programa deverá informar ao usuário se a propriedade foi válida para os 1000 oares de matrizes.
+
+
+
+Faça um programa que receba do usuário o núero de linhas e colunas de uma matriz. O programa deverá criar uma matriz diagonal com a ordem entrada pelo usuário. Deverá ser informado ao usuário que o número de linhas deverá ser maior ou igual ao número de colunas. Se o usuário entrar com valores incorretos deverá ser informado que os valores estão incorretos
+
+Dica: Uma matriz diagonal é uma matriz cujos os termos da diagonal principal são diferentes de zero e todos os outros iguais a zero.
