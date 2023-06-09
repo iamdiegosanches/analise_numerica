@@ -1,6 +1,22 @@
 clear
 clc
 
+A = [17, 16; -3, 16];
+b1 = [1; -13];
+x1 = sol_decomp_LU(A, b1)
+
+B = [10, 17; 5, 11];
+b2 = [-15; 9];
+x2 = sol_decomp_LU(B, b2)
+
+C = [8, 10; 2, 4];
+b3 = [22; -13];
+x3 = sol_decomp_LU(C, b3)
+
+D = [1, -1; 12, 4];
+b4 = [12; -14];
+x4 = sol_decomp_LU(D, b4)
+
 x = linspace(-10, 10, 100);
 
 subplot(2,2,1);
@@ -38,23 +54,11 @@ plot(x, y8);
 hold off;
 title('Sistema 4');
 
-A = [17, 16; -3, 16];
-b1 = [1; -13];
-x1 = sol_decomp_LU(A, b1)
-
-B = [10, 17; 5, 11];
-b2 = [-15; 9];
-x2 = sol_decomp_LU(B, b2)
-
-C = [8, 10; 2, 4];
-b3 = [22; -13];
-x3 = sol_decomp_LU(C, b3)
-
-D = [1, -1; 12, 4];
-b4 = [12; -14];
-x4 = sol_decomp_LU(D, b4)
-
 % Descobrir se o cada sistema tem solucao
-
+if !isnan(x1) && !isnan(x2) && !isnan(x3) && !isnan(x4)
+    disp('Todos os sistemas lineares possuem solucao.');
+else
+    disp('Pelo menos um sistema linear nao possui solucao.');
+end
 
 
