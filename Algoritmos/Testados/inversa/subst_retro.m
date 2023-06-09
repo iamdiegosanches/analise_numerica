@@ -1,4 +1,4 @@
-## Copyright (C) 2023 Diego Sanches Nere dos Santos
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,22 +14,21 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## Objetivo: Obter a inversa de uma matriz
-## @deftypefn {} {@var{A} =} inversa (@var{A})
+## @deftypefn {} {@var{x} =} subst_retro (@var{A}, @var{b})
 ##
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Diego Sanches Nere dos Santos
-## Created: 2023-06-04
+## Author: Diego Sanches
+## Created: 2023-06-09
 
-function A = inversa (A)
-  # A*A^-1 = I
-  # Verifica se a matriz é quadrada
-  [rows, columns] = size(A);
-  if rows ~= columns
-      error("A matriz precisa ser quadrada.");
-  end
-  I = eye(size(A, 1));
-  A = I/A;
+function x = subst_retro (A, b)
+  n = size(A, 1);
+  for i = n : -1 : 1
+    soma = 0;
+    for j = i+1 : n
+      soma = soma + A(i,j)*x(j);
+    endfor
+    x(i) = (b(i) - soma)/A(i,i);
+  endfor
 endfunction
