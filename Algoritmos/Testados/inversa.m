@@ -1,4 +1,4 @@
-## Copyright (C) 2023 Diego Sanches Nere dos Santos
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -20,16 +20,31 @@
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Diego Sanches Nere dos Santos
+## Author: Diego Sanches
 ## Created: 2023-06-04
 
-function A = inversa (A)
-  # A*A^-1 = I
-  # Verifica se a matriz é quadrada
-  [rows, columns] = size(A);
-  if rows ~= columns
-      error("A matriz precisa ser quadrada.");
-  end
-  I = eye(size(A, 1));
-  A = I/A;
+function [A, Info] = inversa (A)
+  tam = size(A);
+  Info = 1;
+  if tam(1) -= tam(2)
+    disp('A matriz deve ser quadrada');
+    A = [];
+    Info = -1;
+    return;
+  endif
+  n = tam(1);
+  identidade = eye(n);
+  tmpA = zeros(size(A));
+  [A,PdU,pivot,Info] = decomposicao_LU(A);
+  if Info ~= 0
+    disp('O sistema nao tem solucao');
+    A = [];
+    return;
+  endif
+  for i = 1 : n
+    b = identidade(:,i);
+    y = subst_sucess_pivotal (A, b, pivot);
+    tmp(:, i) = subst_retro(A, y);
+  endfor
+  A = tmpA;
 endfunction

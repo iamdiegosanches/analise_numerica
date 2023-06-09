@@ -1,4 +1,5 @@
 clear
+clc
 # Resolucao da atividade 3.7
 
 A = [5 -2 2; 3 2 4; 4 -3 1];
