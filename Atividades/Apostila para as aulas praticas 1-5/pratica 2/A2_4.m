@@ -27,18 +27,20 @@ function arr = oragniza ()
   n2 = input("Digite o segundo numero: ");
   n3 = input("Digite o terceiro numero: ");
   if n1 == n2 || n1 == n3 || n2 == n3
-    error('Os numeros devem ser diferentes');
+    disp('Os numeros devem ser diferentes');
+    return;
   endif
-  arr = sort([n1,n2,n3]);
   disp('Numeros ordenados em ordem crescente');
-  disp(arr);
+  # Essa funcao organiza os numeros. Pesquisado no google.
+  arr = sort([n1,n2,n3]);
 
   n4 = input("Digite o quarto numero numero: ");
   if n4 == n1 || n4 == n2 || n4 == n3
-    error('O quarto numero deve ser diferente');
+    disp('Os numeros devem ser diferentes');
+    return;
   endif
   arr = [arr, n4];
-  arr = sort(arr, 'descend');
   disp('Numeros ordenados em ordem descrescente');
-  disp(arr);
+  # comando help sort mostrou que da pra colocar decrescente
+  arr = sort(arr, 'descend');
 endfunction
