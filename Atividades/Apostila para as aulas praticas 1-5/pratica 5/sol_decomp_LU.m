@@ -14,31 +14,18 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{arr} =} oragniza ()
+## @deftypefn {} {@var{x} =} sol_decomp_LU (@var{A}, @var{b})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-06-05
+## Created: 2023-06-07
 
-function arr = oragniza ()
-  n1 = input("Digite o primeiro numero: ");
-  n2 = input("Digite o segundo numero: ");
-  n3 = input("Digite o terceiro numero: ");
-  if n1 == n2 || n1 == n3 || n2 == n3
-    error('Os numeros devem ser diferentes');
-  endif
-  arr = sort([n1,n2,n3]);
-  disp('Numeros ordenados em ordem crescente');
-  disp(arr);
-
-  n4 = input("Digite o quarto numero numero: ");
-  if n4 == n1 || n4 == n2 || n4 == n3
-    error('O quarto numero deve ser diferente');
-  endif
-  arr = [arr, n4];
-  arr = sort(arr, 'descend');
-  disp('Numeros ordenados em ordem descrescente');
-  disp(arr);
+function x = sol_decomp_LU (A, b)
+  [R, Det, Pivot] = decomposicao_LU(A);
+  L = eye(size(R,1)) + tril(R, -1);
+  U = triu(R);
+  y = subst_sucess_pivotal (L, b, Pivot);
+  x = subst_retro(U, y');
 endfunction
