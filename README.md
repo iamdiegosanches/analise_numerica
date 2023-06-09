@@ -2,7 +2,9 @@
 
 ## precisam ser resolvidas
 
-### 1
+### 1 
+Falta descobrir a forma correta de saber se um sistema linear tem solução
+
 Faça um programa que imprima as curvas (x,y) dadas por cada uma das funções lineares, em um mesmo gráfico. E imprima todos os gráficos de todos os sistemas lineares na mesma figura. O programa deve dizer ainda qual dos sistemas lineares tem solução.
 
 1)
