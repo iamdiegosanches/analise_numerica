@@ -14,39 +14,16 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{A}, @var{Det}, @var{Info} =} Cholesky (@var{A})
+## Transforma a matriz e o vetor independente em reais para ser resolvido
+## @deftypefn {} {[@var{A}, @var{b] =} sol_imag_sistem (@var{A}, @var{b})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-05-23
+## Created: 2023-06-10
 
-function [A, Det, Info] = Cholesky (A)
-    n = size(A, 1);
-    Info  = 0;
-    Det = 1;
-    for j = 1 : n
-      Soma = 0;
-      for k = 1 : j - 1
-        Soma = Soma + A(j,k)*A(j,k);
-      endfor
-      t = A(j,j) - Soma;
-      if t > 0
-        A(j,j) = sqrt(t);
-        r = 1/A(j,j);
-        Det = Det * t;
-      else
-        Info = j;
-        disp('A matriz nao e definida positiva');
-        return;
-      endif
-      for i = j+1 : n
-        Soma = 0;
-        for k=1 : j-1
-          Soma = Soma + A(i,k) * A(j,k);
-        endfor
-        A(i,j) = (A(i,j) - Soma) * r;
-      endfor
-    endfor
+function [A, b] = sol_imag_sistem (A, b)
+  A = [real(A) -imag(A); imag(A) real(A)];
+  b = [real(b);imag(b)];
 endfunction
