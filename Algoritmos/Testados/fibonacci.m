@@ -1,4 +1,4 @@
-## Copyright (C) 2023 Diego Sanches
+## Copyright (C) 2023 Diego Sanches Nere dos Santos
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,39 +14,23 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {[@var{A}, @var{Info}] =} inversa (@var{A})
+## @deftypefn {} {@var{sequencia} =} fibonacci (@var{n}, @var{input2})
 ##
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Diego Sanches
-## Created: 2023-06-09
+## Author: Diego Sanches Nere dos Santos
+## Created: 2023-06-05
 
-function [A, Info] = inversa(A)
-  tam = size(A);
-  Info = 1;
-  if tam(1) ~= tam(2)
-    disp('A matriz deve ser quadrada');
-    A = [];
-    Info = -1;
-    return;
+function sequencia = fibonacci (n)
+  if n <= 0
+    error('O numero deve ser inteiro positivo');
   endif
-  n = tam(1);
-  identidade = eye(n);
-  tmpA = zeros(size(A));
-  [A, pivot, pdu, info] = decomposicao_lu(A);
-  L = eye(size(A,1)) + tril(A, -1);
-  U = triu(A);
-  if info ~= 0
-    disp('O sistema nao tem solucao');
-    A = [];
-    return;
-  endif
-  for i = 1:n
-    b = identidade(:,i);
-    y = Subs_Sucessivas_Pivotal(L, b, pivot);
-    tmpA(:,i) = subst_retro(U, y);
+  sequencia = zeros(1,n);
+  sequencia(1) = 0;
+  sequencia(2) = 1;
+
+  for i = 3:n
+    sequencia(i) = sequencia(i-1) + sequencia(i-2);
   endfor
-  A = tmpA;
 endfunction
-

@@ -14,39 +14,33 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {[@var{A}, @var{Info}] =} inversa (@var{A})
+## @deftypefn {} {@var{Info} =} malcondicionado (@var{A})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-06-09
+## Created: 2023-06-10
 
-function [A, Info] = inversa(A)
-  tam = size(A);
-  Info = 1;
-  if tam(1) ~= tam(2)
-    disp('A matriz deve ser quadrada');
-    A = [];
-    Info = -1;
-    return;
-  endif
-  n = tam(1);
-  identidade = eye(n);
-  tmpA = zeros(size(A));
-  [A, pivot, pdu, info] = decomposicao_lu(A);
-  L = eye(size(A,1)) + tril(A, -1);
-  U = triu(A);
-  if info ~= 0
-    disp('O sistema nao tem solucao');
-    A = [];
-    return;
-  endif
-  for i = 1:n
-    b = identidade(:,i);
-    y = Subs_Sucessivas_Pivotal(L, b, pivot);
-    tmpA(:,i) = subst_retro(U, y);
-  endfor
-  A = tmpA;
+function Info = malcondicionado(A)
+    [m, n] = size(A);
+    if m ~= n
+        error('A matriz deve ser quadrada');
+    endif
+
+    invA = inversa(A);
+    normA = norm(A);
+    normInvA = norm(invA);
+    condA = normA * normInvA;
+
+    % Define um limite arbitrário para o número de condicionamento
+    limiteCondicionamento = 1e10;
+
+    % Verifica se o número de condicionamento está acima do limite
+    if condA > limiteCondicionamento
+        Info = 1;
+    else
+        Info = 0;
+    endif
 endfunction
 
