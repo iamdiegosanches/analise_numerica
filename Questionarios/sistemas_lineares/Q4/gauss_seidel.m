@@ -14,7 +14,7 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{x}, @var{Iter}, @var{Info} =} jacobi (@var{n}, @var{A}, @var{b}, @var{Toler}, @var{IterMax})
+## @deftypefn {} {[@var{x}, @var{Iter}, @var{Info}] =} gauss_seidel (@var{n}, @var{A}, @var{b}, @var{Toler}, @var{IterMax})
 ##
 ## @seealso{}
 ## @end deftypefn
@@ -22,36 +22,35 @@
 ## Author: Diego Sanches
 ## Created: 2023-05-23
 
-function [x, Iter, Info] = jacobi (n, A, b, Toler, IterMax)
+function [x, Iter, Info] = gauss_seidel (n, A, b, Toler, IterMax)
   for i = 1 : n
     x(i) = b(i)/A(i,i);
   endfor
   Iter = 0;
   while 1
     Iter = Iter + 1;
-    for j = 1 : n
+    NormaNum = 0;
+    NormaDen = 0;
+    for i = 1 : n
       Soma = 0;
       for j = 1 : n
         if i ~= j
           Soma = Soma + A(i,j)*x(j);
         endif
       endfor
-      v(i) = (b(i) - Soma)/A(i,i);
-    endfor
-    NormaNum = 0;
-    NormaDen = 0;
-    for i = 1 : n
+      v(i) = x(i);
+      x(i) = (b(i) - Soma)/A(i,i);
       t = abs(v(i) - x(i));
       if t > NormaNum
         NormaNum = t;
       endif
-      if abs(v(i)) > NormaDen
-        NormaDen = abs(v(i));
+      if abs(x(i)) > NormaDen
+          NormaDen = abs(x(i));
       endif
-      x(i) = v(i);
     endfor
     NormaRel = NormaNum/NormaDen;
     disp(Iter);
+    disp('x');
     disp(x);
     disp(NormaRel);
     if NormaRel <= Toler || Iter >= IterMax
