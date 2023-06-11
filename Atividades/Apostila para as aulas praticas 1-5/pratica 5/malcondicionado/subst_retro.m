@@ -14,39 +14,23 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{A}, @var{Det}, @var{Info} =} Cholesky (@var{A})
+## @deftypefn {} {@var{x} =} subst_retro (@var{A}, @var{b})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-05-23
+## Created: 2023-06-09
 
-function [A, Det, Info] = Cholesky (A)
-    n = size(A, 1);
-    Info  = 0;
-    Det = 1;
-    for j = 1 : n
-      Soma = 0;
-      for k = 1 : j - 1
-        Soma = Soma + A(j,k)*A(j,k);
-      endfor
-      t = A(j,j) - Soma;
-      if t > 0
-        A(j,j) = sqrt(t);
-        r = 1/A(j,j);
-        Det = Det * t;
-      else
-        Info = j;
-        disp('A matriz nao e definida positiva');
-        return;
-      endif
-      for i = j+1 : n
-        Soma = 0;
-        for k=1 : j-1
-          Soma = Soma + A(i,k) * A(j,k);
-        endfor
-        A(i,j) = (A(i,j) - Soma) * r;
-      endfor
+function x = subst_retro(A, b)
+  n = size(A, 1);
+  x = zeros(n, 1);  % Inicializa o vetor x com zeros
+  for i = n : -1 : 1
+    soma = 0;
+    for j = i+1 : n
+      soma = soma + A(i, j) * x(j);
     endfor
+    x(i) = (b(i) - soma) / A(i, i);
+  endfor
 endfunction
+

@@ -14,7 +14,7 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{A}, @var{Det}, @var{Info} =} Cholesky (@var{A})
+## @deftypefn {} {@var{A}, @var{Det} =} decomposicao_LDL (@var{A})
 ##
 ## @seealso{}
 ## @end deftypefn
@@ -22,31 +22,23 @@
 ## Author: Diego Sanches
 ## Created: 2023-05-23
 
-function [A, Det, Info] = Cholesky (A)
-    n = size(A, 1);
-    Info  = 0;
+function [A, Det] = decomposicao_LDL (A)
+    n = size(A,1);
     Det = 1;
     for j = 1 : n
-      Soma = 0;
-      for k = 1 : j - 1
-        Soma = Soma + A(j,k)*A(j,k);
-      endfor
-      t = A(j,j) - Soma;
-      if t > 0
-        A(j,j) = sqrt(t);
-        r = 1/A(j,j);
-        Det = Det * t;
-      else
-        Info = j;
-        disp('A matriz nao e definida positiva');
-        return;
-      endif
-      for i = j+1 : n
-        Soma = 0;
-        for k=1 : j-1
-          Soma = Soma + A(i,k) * A(j,k);
-        endfor
-        A(i,j) = (A(i,j) - Soma) * r;
-      endfor
+       Soma = 0;
+       for k = 1 : j-1
+         Soma = Soma + A(j,k)^2 * A(k,k);
+       endfor
+       A(j,j) = A(j,j) - Soma;
+       r = 1/A(j,j);
+       Det = Det*A(j,j);
+       for i = j+1 : n
+         Soma  = 0;
+         for k = 1 : j-1
+           Soma = Soma + A(i,k)*A(k,k)*A(j,k);
+         endfor
+         A(i,j) = (A(i,j) - Soma)*r;
+       endfor
     endfor
 endfunction

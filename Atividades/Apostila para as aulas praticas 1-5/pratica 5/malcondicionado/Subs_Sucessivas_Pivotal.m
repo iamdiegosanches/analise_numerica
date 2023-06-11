@@ -14,39 +14,26 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{A}, @var{Det}, @var{Info} =} Cholesky (@var{A})
+## @deftypefn {} {@var{y} =} Subs_Sucessivas_Pivotal (@var{L}, @var{B}, @var{Pivot})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-05-23
+## Created: 2023-06-09
 
-function [A, Det, Info] = Cholesky (A)
-    n = size(A, 1);
-    Info  = 0;
-    Det = 1;
-    for j = 1 : n
-      Soma = 0;
-      for k = 1 : j - 1
-        Soma = Soma + A(j,k)*A(j,k);
-      endfor
-      t = A(j,j) - Soma;
-      if t > 0
-        A(j,j) = sqrt(t);
-        r = 1/A(j,j);
-        Det = Det * t;
-      else
-        Info = j;
-        disp('A matriz nao e definida positiva');
-        return;
-      endif
-      for i = j+1 : n
-        Soma = 0;
-        for k=1 : j-1
-          Soma = Soma + A(i,k) * A(j,k);
-        endfor
-        A(i,j) = (A(i,j) - Soma) * r;
-      endfor
+function y = Subs_Sucessivas_Pivotal(L, b, Pivot)
+  n = size(L, 1);
+  k = Pivot(1);
+  y = zeros(n, 1);  % Inicializa o vetor y com zeros
+  y(1) = b(k);
+  for i = 2 : n
+    soma = 0;
+    for j = 1 : i-1
+      soma = soma + L(i, j) * y(j);
     endfor
+    k = Pivot(i);
+    y(i) = b(k) - soma;
+  endfor
 endfunction
+

@@ -14,39 +14,39 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{A}, @var{Det}, @var{Info} =} Cholesky (@var{A})
+## @deftypefn {} {[@var{A}, @var{Info}] =} inversa (@var{A})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-05-23
+## Created: 2023-06-09
 
-function [A, Det, Info] = Cholesky (A)
-    n = size(A, 1);
-    Info  = 0;
-    Det = 1;
-    for j = 1 : n
-      Soma = 0;
-      for k = 1 : j - 1
-        Soma = Soma + A(j,k)*A(j,k);
-      endfor
-      t = A(j,j) - Soma;
-      if t > 0
-        A(j,j) = sqrt(t);
-        r = 1/A(j,j);
-        Det = Det * t;
-      else
-        Info = j;
-        disp('A matriz nao e definida positiva');
-        return;
-      endif
-      for i = j+1 : n
-        Soma = 0;
-        for k=1 : j-1
-          Soma = Soma + A(i,k) * A(j,k);
-        endfor
-        A(i,j) = (A(i,j) - Soma) * r;
-      endfor
-    endfor
+function [A, Info] = inversa(A)
+  tam = size(A);
+  Info = 1;
+  if tam(1) ~= tam(2)
+    disp('A matriz deve ser quadrada');
+    A = [];
+    Info = -1;
+    return;
+  endif
+  n = tam(1);
+  identidade = eye(n);
+  tmpA = zeros(size(A));
+  [A, pivot, pdu, info] = decomposicao_lu(A);
+  L = eye(size(A,1)) + tril(A, -1);
+  U = triu(A);
+  if info ~= 0
+    disp('O sistema nao tem solucao');
+    A = [];
+    return;
+  endif
+  for i = 1:n
+    b = identidade(:,i);
+    y = Subs_Sucessivas_Pivotal(L, b, pivot);
+    tmpA(:,i) = subst_retro(U, y);
+  endfor
+  A = tmpA;
 endfunction
+

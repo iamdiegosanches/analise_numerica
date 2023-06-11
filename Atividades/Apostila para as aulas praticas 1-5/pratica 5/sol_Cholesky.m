@@ -24,6 +24,10 @@
 
 function x = sol_Cholesky (A, b)
   [R, Det, Info] = Cholesky (A);
+  if Info ~= 0
+    disp('nao e possivel resolver o sistema por Cholesky');
+    return;
+  endif
   L = tril(R);
   y = subst_sucess(L, b);
   x = subst_retro(L', y');
