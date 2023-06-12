@@ -39,38 +39,11 @@ Faça uma função que receba quatro valores I, A, B e C. TOdos os valores são 
 	    2				A, B e C em ordem decrescente
 	    3				O segundo menor à esquerda o maior no meio e o menor na direita
 
-#######################################################################################################s
+#######################################################################################################
 
 Lembrando que o traço é simplesmente o somatório dos termos da diagonal principal faça um programa que teste no mínimo 1000 pares de matrizes criadas aleatoriamente que demonstr que traço(AB) = traço(BA). O seu programa deverá mostrar ao final se a propriedade foi válida ou não.
-
-#########################################################################################################
-
-Faça o gráfico da função y = e^3x - 5, no invervalo [-5,-1]. O marcador deverá ser asterisco magenta. No eixo x deverá ter o rótulo 'tempo' e no eixo y 'concentração'
-
-x = linspace(-5, -1, 100); 
-y = exp(3*x) - 5; 
-plot(x, y, 'm*'); 
-xlabel('tempo'); 
-ylabel('concentração'); 
-title('Gráfico da função y = e^{3x} - 5');
 
 ###########################################################################################################
 
 Crie uma função que peça ao usuário para digitar a ordem de uma matriz quadrada, crie uma matriz aleatória calcule e mostre  o quadrado desta matriz. (Obs. Não é o quadrado de cada termo  e sim o quadrado da matriz)
-
-############################################################################################################
-
-Faça um programa que leia o valor de x e do número n de termos para a expressão abaixo através do teclado e mostre seu valor calculado com estes n termos
-
-cos(x) = 1 - x^2/2! + x^4/4! - x^6/6!
-
-#############################################################################################################
-
-Marque a opção abaixo que representa a definição de uma equação linear.
-
-a. É uma equação escrita em linha.
-b. É uma equação em que todas as variáveis aparecem em primeira potência e cada termo tem apenas uma variável. -> resposta
-c. Nenhuma das respostas anteriores.
-d. É uma equação que se iguala sempre a zero.
-e. É uma euqação que tem apenas uma variável.
 

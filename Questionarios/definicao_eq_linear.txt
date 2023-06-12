@@ -1,0 +1,9 @@
+Marque a opção abaixo que representa a definição de uma equação linear.
+
+a. É uma equação escrita em linha.
+b. É uma equação em que todas as variáveis aparecem em primeira potência e cada termo tem apenas uma variável. -> resposta
+c. Nenhuma das respostas anteriores.
+d. É uma equação que se iguala sempre a zero.
+e. É uma euqação que tem apenas uma variável.
+
+resposta: b
