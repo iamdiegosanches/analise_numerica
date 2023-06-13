@@ -44,3 +44,7 @@ Faça uma função que receba quatro valores I, A, B e C. TOdos os valores são 
 	    1				A, B e C em ordem crescente
 	    2				A, B e C em ordem decrescente
 	    3				O segundo menor à esquerda o maior no meio e o menor na direita
+	    
+### 4
+
+Lembrando que o traço é simplesmente o somatório dos termos da diagonal principal faça um programa que teste no mínimo 1000 pares de matrizes criadas aleatoriamente que demonstr que traço(AB) = traço(BA). O seu programa deverá mostrar ao final se a propriedade foi válida ou não.
