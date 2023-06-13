@@ -2,18 +2,16 @@ clear
 
 flag = 1;
 for i = 1 : 1000
-  n = randi([3,7]);
-  A = rand(n)*100;
-  k = rand();
-  l = rand();
-  if (k + l)*A ~= k*A + l*A
+  matriz = randi([0,1000], 3);
+  k = randi(1000);
+  L = randi(1000);
+  if (k + L) * matriz ~= k * matriz + L * matriz
     flag = 0;
   endif
 endfor
 
-if flag == 1
-  disp('A propriedade e valida.');
+if flag == 0
+  disp('Propriedade invalida');
 else
-  disp('A propriedade e invalida.');
+  disp('Propriedade valida');
 endif
-
