@@ -1,5 +1,7 @@
 # Enunciado da questão
 
+## 1
+
 Faça um programa que verifique se o sistema linear tem solução, caso tenha o programa deve verificar se é possível resolver pelo método proposto se sim deve determinar a solução, se não deve informar ao usuário que não é possível resolver o sistema pelo método selecionado.
 
 Cholesky
@@ -13,3 +15,13 @@ Cholesky
                5.69X1+5.68X2+14.01X3+33.41X4+5.03X5=-7.76
 
                -12.65X1+12.45X2-9.41X3+5.03X4+40.54X5=-16.57
+
+## 2
+
+Faça um programa que verifique se o sistema linear tem solução, caso tenha o programa deve verificar se é possível resolver pelo método proposto se sim deve determinar a solução, se não deve informar ao usuário que não é possível resolver o sistema pelo método selecionado.
+
+Cholesky
+
+               17.15X1+8.15X2=8.90
+
+               8.15X1+18.15X2=1.13
