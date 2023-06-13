@@ -54,7 +54,7 @@ plot(x, y8);
 hold off;
 title('Sistema 4');
 
-% Descobrir se o cada sistema tem solucao
+# Descobrir se o cada sistema tem solucao
 if !isnan(x1) && !isnan(x2) && !isnan(x3) && !isnan(x4)
     disp('Todos os sistemas lineares possuem solucao.');
 else
