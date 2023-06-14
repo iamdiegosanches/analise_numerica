@@ -14,37 +14,39 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## Objetivo: Obter a inversa de uma matriz
-## @deftypefn {} {@var{A} =} inversa (@var{A})
+## @deftypefn {} {@var{A}, @var{Det}, @var{Info} =} Cholesky (@var{A})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-06-04
+## Created: 2023-05-23
 
-function [A, Info] = inversa (A)
-  tam = size(A);
-  Info = 1;
-  if tam(1) -= tam(2)
-    disp('A matriz deve ser quadrada');
-    A = [];
-    Info = -1;
-    return;
-  endif
-  n = tam(1);
-  identidade = eye(n);
-  tmpA = zeros(size(A));
-  [A,PdU,pivot,Info] = decomposicao_LU(A);
-  if Info ~= 0
-    disp('O sistema nao tem solucao');
-    A = [];
-    return;
-  endif
-  for i = 1 : n
-    b = identidade(:,i);
-    y = subst_sucess_pivotal (A, b, pivot);
-    tmp(:, i) = subst_retro(A, y);
-  endfor
-  A = tmpA;
+function [A, Det, Info] = Cholesky (A)
+    n = size(A, 1);
+    Info  = 0;
+    Det = 1;
+    for j = 1 : n
+      Soma = 0;
+      for k = 1 : j - 1
+        Soma = Soma + A(j,k)*A(j,k);
+      endfor
+      t = A(j,j) - Soma;
+      if t > 0
+        A(j,j) = sqrt(t);
+        r = 1/A(j,j);
+        Det = Det * t;
+      else
+        Info = j;
+        disp('A matriz nao e definida positiva');
+        return;
+      endif
+      for i = j+1 : n
+        Soma = 0;
+        for k=1 : j-1
+          Soma = Soma + A(i,k) * A(j,k);
+        endfor
+        A(i,j) = (A(i,j) - Soma) * r;
+      endfor
+    endfor
 endfunction
