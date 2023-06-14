@@ -34,14 +34,3 @@ ii) SAE 3210 - 1,32% Ni, 4,19% Cr, 0,13% C.
 A) Esta indústria irá fundir 3 peças, uma de cada tipo descrito acima, para formar uma barra maior de um novo tipo de aço. A peça depois de fundida ficará com 10kg e o aço será o 3420 com 4,36% Ni, 4,47% Cr e 3,06% C. Quais as quantidades em kg das peças de aço 3105, 3210 3330deverão ser utilizadas?
 
 Resolva o problema utilizando o método de decomposição LU com pivotação.
-
-### 3
-
-Faça uma função que receba quatro valores I, A, B e C. Todos os valores são inteiros. Escreva os números A, B e C obedecendo à tabela a seguir. Suponha que o valor digitado para I seja uim valor válido, ou seja, 1, 2 ou 3, e os números A, B e C digitados devem ser verificados se são diferentes um do outro, se não deve ser solicitado ao usuário para entrar com outros números.
-
-
-	Valor de I			Forma ded escrever
-	    1				A, B e C em ordem crescente
-	    2				A, B e C em ordem decrescente
-	    3				O segundo menor à esquerda o maior no meio e o menor na direita
-	    
