@@ -16,23 +16,8 @@ Faça um programa que imprima as curvas (x,y) dadas por cada uma das funções l
 1x + -1y = 12
 12x + 4y = -14
 
-###################################################################################################
-
-Faça uma função que receba quatro valores I, A, B e C. TOdos os valores são inteiros. Escreva os números A, B e C obedecendo à tabela a seguir. Suponha que o valor digitado para I seja uim valor válido, ou seja, 1, 2 ou 3, e os números A, B e C digitados devem ser verificados se são diferentes um do outro, se não deve ser solicitado ao usuário para entrar com outros números.
-
-
-	Valor de I			Forma ded escrever
-	    1				A, B e C em ordem crescente
-	    2				A, B e C em ordem decrescente
-	    3				O segundo menor à esquerda o maior no meio e o menor na direita
-####################################################################################################
-
-Faça um programa que crie aleatoriamente uma matriz dos coeficientes e um vetor de termos independentes. A matriz dos coeficientes deverá ser quadrada com a ordem escolhida pelo usuário. O vetor de termos independentes deverá ter o mesmo número de linhaS que o número de colunas da matriz dos coeficientes. Então seu programa deverá dizer se o sistema linear criado tem solução, caso tenha deverá resolvê-lo utilizando o método de decomposição LU.
-
-#########################################################################################
-Um ginásio de voley cabe no total 14000 pessoas. Neste ginásio foram realizados dois jogos em dias diferentes, somando os dois dias foram vendidos todos os lugares. Os homens pagaram R$5,00 no primeiro dia de jogo, as crianças R$2,00 e as mulheres R$3,00. Já no segundo dia as mulheres pagaram R$3,00 os homens R$4,00 e as crianças R$1,00. As rendas em cada jogo foram R$56000,00 para o primeiro e R$42000,00 para o segundo. Faça um programa que calcule quantos homens mulheres e crianças foram aos jogos, utilizando o método de decomposição LU com pivotação.
-
 ########################################################################################
+
 Você trabalha em uma empresa de chocolate que faz três tipos de barras diferentes, ao leite, meio amargo e amargo. Para isto são controladas as quantidades de leite, cacau e açúcar que são utilizados na produção. Para fazer a produção da barra de chocolate ao leite são gastos 31 g de leite, 68g de cacau e 62g de açúcar. Para a barra de chocolate meio amargo são gastos 25g de leite 85g de cacau e 55g de açúcar. Já para o amargo são gasto 15g de leite 105g de cacau e 30g de açúcar. Sabendo que temos 1,64kg de leite, 7,44kg de cacau e 3,38kg de açúcar no estoque quantas barras de cada tipo de chocolate poderá ser produzida? Resolva o problema utilizando o método de decomposição LU.
 
 
