@@ -1,0 +1,3 @@
+# Enunciado da questão
+
+Faça um programa que crie aleatoriamente uma matriz dos coeficientes e um vetor de termos independentes. A matriz dos coeficientes deverá ser quadrada com a ordem escolhida pelo usuário. O vetor de termos independentes deverá ter o mesmo número de linhaS que o número de colunas da matriz dos coeficientes. Então seu programa deverá dizer se o sistema linear criado tem solução, caso tenha deverá resolvê-lo utilizando o método de decomposição LU.

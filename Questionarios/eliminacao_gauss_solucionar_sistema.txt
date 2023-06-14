@@ -1,0 +1,20 @@
+No Octave após a eliminação de Gauss qual função foi utilizada para solucionar o sistema linear?
+
+Escolha uma opção:
+
+a.
+x = substituicoes_lineares(U,b_aj,3)
+
+b.
+x = substituicoes_retroativas(U,b_aj,3)
+
+c.
+x = sistema_sucessivo(U,b_aj,3)
+
+d.
+x = sistema_retroativo(U,b_aj,3)
+
+e.
+x = substituicoes_sucessivas(U,b_aj,3)
+
+A resposta correta é: x = substituicoes_retroativas(U,b_aj,3)

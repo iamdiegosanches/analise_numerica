@@ -1,0 +1,20 @@
+Quando executamos a função plot com apenas um parâmetro no Octave o que é mostrado no gráfico?
+
+Escolha uma opção:
+
+a.
+O gráfico do vetor onde cada termo é o valor de x do gráfico e o y é a posição do elemento no vetor.
+
+b.
+É apresentado um gráfico mas sem nenhuma curva dentro dele.
+
+c.
+O gráfico do vetor onde cada termo é o valor de y do gráfico e o x é a posição do elemento no vetor.
+
+d.
+Não é mostrado nada pois a função precisa dos parâmetros X e Y como entrada.
+
+e.
+É solicitado ao usuário que digite os valores de x para cada elemento de y no teclado.
+
+A resposta correta é: O gráfico do vetor onde cada termo é o valor de y do gráfico e o x é a posição do elemento no vetor.
