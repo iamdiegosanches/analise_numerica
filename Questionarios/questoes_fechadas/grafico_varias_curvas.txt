@@ -1,0 +1,24 @@
+Qual das opções abaixo descreve uma forma dos parâmetros de entrada da função plot para criar um gráfico com várias cruvas no Octave?
+
+Escolha uma opção:
+
+a.
+Não é possível imprimir várias curvas no mesmo gráfico ao mesmo tempo.
+
+
+b.
+Basta colocar todas as ordenadas e abscissas em um único vetor e usá-lo como parâmetro de entrada.
+
+
+c.
+Basta colocar um valor de ordenadas e os valores das abscissas separados por vírgula.
+
+
+d.
+Basta colocar os valores das ordenadas e abscissas sem nenhum separador.
+
+
+e.
+Cada valor de ordenadas e abscissas devem ser repetidos separados por vírgula.
+
+A resposta correta é: Cada valor de ordenadas e abscissas devem ser repetidos separados por vírgula.

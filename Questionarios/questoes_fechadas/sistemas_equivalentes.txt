@@ -1,0 +1,24 @@
+Dizemos que dois sistemas lineares são equivalentes quando? Marque a opção correta abaixo.
+
+Escolha uma opção:
+
+a.
+Admitem a mesma solução.
+
+
+b.
+Possuem a mesma ordem.
+
+
+c.
+As equações lineares do sistema são múltiplas umas das outras.
+
+
+d.
+Possuem o mesmo vetor de termos independentes.
+
+
+e.
+Possuem apenas a matriz dos coeficientes iguais.
+
+A resposta correta é: Admitem a mesma solução.

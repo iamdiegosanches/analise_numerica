@@ -1,0 +1,24 @@
+λ é o conjunto de autovalores de A e λ' o conjunto de autovalores da transposta de A. Marque a opção com a afirmativa correta.
+
+Escolha uma opção:
+
+a.
+λ' = -λ
+
+
+b.
+λ' = 1/λ
+
+
+c.
+λ' = -1/λ
+
+
+d.
+λ' = 2*λ
+
+
+e.
+λ' = λ
+
+A resposta correta é: λ' = λ

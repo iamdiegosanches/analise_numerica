@@ -1,0 +1,7 @@
+Responda apenas com um número qual a ordem do sistema abaixo:
+
+x + y -3z = 5
+2x -y +2z = 1
+   y + z  = 3
+
+resposta: 3

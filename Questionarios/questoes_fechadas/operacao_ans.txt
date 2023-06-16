@@ -1,0 +1,24 @@
+O que acontece quando é feita uma operação que não é atribuída a nenhuma variável?
+
+Escolha uma opção:
+
+a.
+O resultado é salvo apenas na memória ram.
+
+
+b.
+O resultado não é mostrado e o Octave apresenta um erro.
+
+
+c.
+O resultado é apenas mostrado na tela e não é armazenado.
+
+
+d.
+O resultado é armazenado no operando.
+
+
+e.
+O resultado é atribuído a uma variável chamada ans.
+
+A resposta correta é: O resultado é atribuído a uma variável chamada ans.

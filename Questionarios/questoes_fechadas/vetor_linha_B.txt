@@ -1,0 +1,24 @@
+Qual o comando abaixo pode ser utilizado para criar um vetor linha B, com todas as colunas da linha 2 da matriz A no Octave?
+
+Escolha uma opção:
+
+a.
+B = A[2,:];
+
+
+b.
+B = A(2,:);
+
+
+c.
+B = (:,2);
+
+
+d.
+B = A[2][:];
+
+
+e.
+B = A[:],[2];
+
+A resposta correta é: B = A(2,:);

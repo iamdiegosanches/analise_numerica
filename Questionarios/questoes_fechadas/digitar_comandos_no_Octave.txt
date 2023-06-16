@@ -1,0 +1,24 @@
+Onde podem ser digitados os comandos no Octave?
+
+Escolha uma opção:
+
+a.
+No editor de comandos
+
+
+b.
+Na janela de comandos.
+
+
+c.
+No histórico de comandos
+
+
+d.
+No diretório atual.
+
+
+e.
+No captador de comandos
+
+A resposta correta é: Na janela de comandos.

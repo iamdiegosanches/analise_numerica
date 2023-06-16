@@ -1,0 +1,24 @@
+Qual a função do subplot no Octave?
+
+Escolha uma opção:
+
+a.
+Imprimir vários gráficos em várias figuras.
+
+
+b.
+Imprimir várias curvas em um mesmo gráfico.
+
+
+c.
+Imprimir vários gráficos em uma mesma figura.
+
+
+d.
+sub imprimir um gráfico em uma figura.
+
+
+e.
+Imprimir várias curvas em vários gráficos.
+
+A resposta correta é: Imprimir vários gráficos em uma mesma figura.

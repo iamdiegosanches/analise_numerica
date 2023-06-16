@@ -1,0 +1,24 @@
+Sobre a declaração de variáveis no Octave podemos dizer que:
+
+Escolha uma opção:
+
+a.
+A variáveis são declaradas no início da seção.
+
+
+b.
+Todas as variáveis são declaradas binárias.
+
+
+c.
+Todas as variáveis são declaradas como numéricas.
+
+
+d.
+Variáveis podem ser usadas sem declaração.
+
+
+e.
+A variáveis são declaradas com tipo vazio.
+
+A resposta correta é: Variáveis podem ser usadas sem declaração.

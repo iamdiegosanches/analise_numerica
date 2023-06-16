@@ -1,0 +1,24 @@
+Qual é o lugar onde pode ser mostrado os arquivos que serão executados no Octave?
+
+Escolha uma opção:
+
+a.
+No disco rígido
+
+
+b.
+No diretório atual.
+
+
+c.
+No pen-drive
+
+
+d.
+Na internet.
+
+
+e.
+No SSd.
+
+A resposta correta é: No diretório atual.

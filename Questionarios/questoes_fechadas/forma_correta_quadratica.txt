@@ -1,0 +1,37 @@
+Qual das expressões abaixo representa a forma correta de se calcular a forma quadrática de uma matriz no Octave?
+
+Escolha uma opção:
+
+a.
+q = A^2*v
+
+
+b.
+q = v*A'*v
+
+
+c.
+q = v^2*A^2*v^2
+
+
+d.
+q = (V')^2*A
+
+
+e.
+q = v'*A*v
+
+
+f.
+q = v^-1*A*v
+
+
+g.
+q = A*v'*v
+
+
+h.
+q = (v*A)^2
+
+
+A resposta correta é: q = v'*A*v

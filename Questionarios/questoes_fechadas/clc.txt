@@ -1,0 +1,24 @@
+Qual a função do comando clc?
+
+Escolha uma opção:
+
+a.
+Limpar o histórico de funções.
+
+
+b.
+Apagar as variáveis.
+
+
+c.
+Limpar o histórico de comandos.
+
+
+d.
+Limpar a tela.
+
+
+e.
+Limpar os programas.
+
+A resposta correta é: Limpar a tela.
