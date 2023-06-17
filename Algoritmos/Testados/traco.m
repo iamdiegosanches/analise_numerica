@@ -1,4 +1,4 @@
-## Copyright (C) 2023 dgsan
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -20,9 +20,12 @@
 ## @seealso{}
 ## @end deftypefn
 
-## Author: dgsan <dgsan@LAPTOP-3MAB8DDK>
+## Author: Diego Sanches
 ## Created: 2023-05-23
 
-function soma = traco (A, input2)
-  soma = sum(diag(A));
+function soma = traco (A)
+  soma = 0;
+  for  i = 1 : size(A, 1)
+    soma = soma + A(i,i);
+  endfor
 endfunction
