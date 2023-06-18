@@ -29,7 +29,7 @@ function [x, Iter, Info] = jacobi (n, A, b, Toler, IterMax)
   Iter = 0;
   while 1
     Iter = Iter + 1;
-    for j = 1 : n
+    for i = 1 : n
       Soma = 0;
       for j = 1 : n
         if i ~= j
