@@ -3,27 +3,6 @@
 ## precisam ser resolvidas
 
 ### 1 
-Falta descobrir a forma correta de saber se um sistema linear tem solução
-
-Faça um programa que imprima as curvas (x,y) dadas por cada uma das funções lineares, em um mesmo gráfico. E imprima todos os gráficos de todos os sistemas lineares na mesma figura. O programa deve dizer ainda qual dos sistemas lineares tem solução.
-
-1)
-17x +16y = 1
--3x + 16y = -13
-
-2)
-10x + 17y = -15
-5x + 11y = 9
-
-3)
-8x + 10y = 22
-2x + 4y = -13
-
-4)
-1x + -1y = 12
-12x + 4y = -14
-
-### 2
 
 Você trabalha em uma indústria que recicla peças de aço. Esta indústria comprou três peças de aço. Esta indústria comprou três peças com os seguintes tipos de aço SAE 3105/3210/3330 as características destes aços são:
 
