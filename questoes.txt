@@ -1,21 +1,3 @@
-Faça um programa que imprima as curvas (x,y) dadas por cada uma das funções lineares, em um mesmo gráfico. E imprima todos os gráficos de todos os sistemas lineares na mesma figura. O programa deve dizer ainda qual dos sistemas lineares tem solução.
-
-1)
-17x +16y = 1
--3x + 16y = -13
-
-2)
-10x + 17y = -15
-5x + 11y = 9
-
-3)
-8x + 10y = 22
-2x + 4y = -13
-
-4)
-1x + -1y = 12
-12x + 4y = -14
-
 ########################################################################################
 
 Você trabalha em uma empresa de chocolate que faz três tipos de barras diferentes, ao leite, meio amargo e amargo. Para isto são controladas as quantidades de leite, cacau e açúcar que são utilizados na produção. Para fazer a produção da barra de chocolate ao leite são gastos 31 g de leite, 68g de cacau e 62g de açúcar. Para a barra de chocolate meio amargo são gastos 25g de leite 85g de cacau e 55g de açúcar. Já para o amargo são gasto 15g de leite 105g de cacau e 30g de açúcar. Sabendo que temos 1,64kg de leite, 7,44kg de cacau e 3,38kg de açúcar no estoque quantas barras de cada tipo de chocolate poderá ser produzida? Resolva o problema utilizando o método de decomposição LU.
