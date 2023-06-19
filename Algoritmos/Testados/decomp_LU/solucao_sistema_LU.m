@@ -1,4 +1,4 @@
-## Copyright (C) 2023 Diego Sanches Nere dos Santos
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -19,17 +19,16 @@
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Diego Sanches Nere dos Santos
+## Author: Diego Sanches
 ## Created: 2023-05-24
 
 function x = solucao_sistema_LU (A, b)
-  [A,Pivot,PdU,Info] = LUPivot(A);
+  [A, Det, Pivot] = decomposicao_LU (A);
   U = triu(A);
   L = eye(size(A)) + tril(A, -1);
   P = eye(size(A));
-  P = p(Pivot,:);
+  P = P(Pivot,:);
   b = P*b;
-  n = size(A,1);
   y = subst_sucess(L,b);
-  x = subst_retro(U,y);
+  x = subst_retro(U,y');
 endfunction
