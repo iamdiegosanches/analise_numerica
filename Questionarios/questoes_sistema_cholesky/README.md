@@ -25,3 +25,10 @@ Cholesky
                17.15X1+8.15X2=8.90
 
                8.15X1+18.15X2=1.13
+
+# 3
+
+Se o terno (x0,y0,z0) é solução do sistema abaixo, então faça um programa que determine e mostre para o usuário o valor 3*x1 + 5*x2 + 4*x3, utilziando o método de Cholesky para resolver o sistema linear.
+44.88 X1 -17.65 X2 + 18.23 X3 = -10.60
+-17.65 X1 +43.80 -16.15 X3 = -15.46
+18.23 X1 -16.15 X2 + 44.38 X3 = 3.04
