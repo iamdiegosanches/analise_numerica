@@ -12,6 +12,4 @@ IV) Splines-extrapolados
 
 V) coeficientes_polinomio
 
-VI) polinomio_newton
-
 VII) polinomio_gregory_newton
