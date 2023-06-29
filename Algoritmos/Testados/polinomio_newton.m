@@ -15,7 +15,11 @@
 
 ## -*- texinfo -*-
 ## @deftypefn {} {@var{Pz} =} polinomio_newton (@var{m}, @var{x}, @var{y}, @var{z})
-##
+## Pz = valor interpolado
+## m = numero de pontos
+## x = vetor de abcissas
+## y = vetor de ordenadas
+## z = valor a interpolar
 ## @seealso{}
 ## @end deftypefn
 
