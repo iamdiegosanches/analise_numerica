@@ -14,29 +14,25 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{c} =} coeficientes_polinomio (@var{n}, @var{x}, @var{y})
-## n = grau maximo do polinomio
-## vetores de tamanho n + 1 com abscissas e ordenadas
+## @deftypefn {} {@var{Pz} =} polinomio_lagrange (@var{m}, @var{x}, @var{y}, @var{z})
+##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-06-23
+## Created: 2023-05-23
 
-function c = coeficientes_polinomio (n, x, y)
-  for i = 1 : n + 1
-    c(i) = y(i);
-  endfor
-  # construcao das diferencas divididas
-  for i = 1 : n
-    for k = n+1 : -1 : i+1
-      c(k) = (c(k) - c(k-1))/(x(k) - x(k-i));
+function Pz = polinomio_lagrange (m, x, y, z)
+  Pz = 0;
+  for i = 1 : m
+    c = 1;
+    d = 1;
+    for j = 1 : m
+      if i ~= j
+        c = c * (z - x(j));
+        d = d * (x(i) - x(j));
+      endif
     endfor
-  endfor
-  # Calculo dos coeficientes
-  for i = n : -1 : 1
-    for k = i : n
-      c(k) = c(k) - c(k+1)*x(i);
-    endfor
+    Pz = Pz + y(i) * c/d;
   endfor
 endfunction

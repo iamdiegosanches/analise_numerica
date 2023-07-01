@@ -14,7 +14,7 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{coeficientes} =} coef_polinomio_lagrange (@var{m}, @var{x}, @var{y})
+## @deftypefn {} {@var{c} =} coef_polinomio_lagrange (@var{m}, @var{x}, @var{y}, @var{z})
 ##
 ## @seealso{}
 ## @end deftypefn
@@ -22,18 +22,15 @@
 ## Author: Diego Sanches
 ## Created: 2023-06-30
 
-function coeficientes = coef_polinomio_lagrange(m, x, y)
-    coeficientes = zeros(1, m);
-    for i = 1:m
-        c = 1;
-        d = 1;
-        for j = 1:m
-            if i ~= j
-                c = c * (-x(j));
-                d = d * (x(i) - x(j));
-            endif
-        endfor
-        coeficientes(i) = y(i) * c / d;
+function c = coef_polinomio_lagrange(m, x, y, z)
+  P = ones(m);
+  for i = 1 : m
+    for j = 1 : m
+      if i ~= j
+        P(i) = P(i) * (z - x(j));
+      endif
     endfor
+    c(i) = y(i)/P(i);
+  endfor
 endfunction
 
