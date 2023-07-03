@@ -1,4 +1,4 @@
-## Copyright (C) 2023 PID UFOP
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,20 +14,25 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{s2}, @var{CondErro} =} splimes_extrapolados (@var{n}, @var{x}, @var{y})
-##
+## @deftypefn {} {@var{s2}, @var{Info} =} splimes_extrapolados (@var{n}, @var{x}, @var{y})
+## entradas:
+## numero de pontos, vetor de abscissas em ordem crescente e vetor de ordenadas
+## saida:
+## derivadas segundas e informacoes sobre erro, sendo
+## Info = 0: nao houve erro, e Info = -1: numero de pontos n < 4 w
+## Info = -2: abscissas nao estao em ordem crescente
 ## @seealso{}
 ## @end deftypefn
 
-## Author: PID UFOP <PID UFOP@OP-151170>
+## Author: Diego Sanches
 ## Created: 2023-05-26
 
-function [s2, CondErro] = splimes_extrapolados (n, x, y)
+function [s2, Info] = splimes_extrapolados (n, x, y)
     if n < 4
-      CondErro = 1;
+      Info = 1;
       return;
     endif
-    CondErro = 0;
+    Info = 0;
     m = n-2;
     Ha = x(2) - x(1);
     Deltaa = (y(2)-y(1))/Ha;

@@ -1,4 +1,4 @@
-## Copyright (C) 2023 PID UFOP
+## Copyright (C) 2023 Diego Sanchesx
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,26 +14,26 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{r} =} polinomio_newton (@var{m}, @var{x}, @var{y}, @var{z})
-##
+## @deftypefn {} {@var{Pz} =} polinomio_newton (@var{m}, @var{x}, @var{y}, @var{z})
+## m = numero de pontos
 ## @seealso{}
 ## @end deftypefn
 
-## Author: PID UFOP <PID UFOP@OP-151234>
+## Author: Diego Sanches
 ## Created: 2023-05-26
 
-function r = polinomio_gregory_newton (m, x, y, z)
+function Pz = polinomio_gregory_newton (m, x, y, z)
   for i = 1 : m
     Dely(i) = y(i);
   endfor
-  for k = 1 : m-1
-    for i = m : -1 : k+1
-      Dely(i) = Dely(i) - Dely(i-1);
+  for i = 1 : m-1
+    for k = m : -1 : i+1
+      Dely(k) = Dely(k) - Dely(k-1);
     endfor
   endfor
   u = (z - x(1))/(x(2) - x(1));
-  r = Dely(m);
-  for i = m-1 : -1: 1
-    r = r * (u-i + 1)/(i + Dely(i));
+  Pz = Dely(m);
+  for i = m-1 : -1 : 1
+    Pz = Pz * (u-i + 1)/i + Dely(i);
   endfor
 endfunction
