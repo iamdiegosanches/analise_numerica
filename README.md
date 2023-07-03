@@ -2,14 +2,14 @@
 
 ## Algoritmos a serem testados
 
-I) Escolhe-pontos
+I) Splines-avaliar
 
-II) Splines-naturais
+II) Splines-extrapolados (Refazer)
 
-III) Splines-avaliar
+## Algoritmos a serem implementados
 
-IV) Splines-extrapolados
+I) Matriz-explicativas
 
-V) coeficientes_polinomio
+II) Regressao-linear-EN
 
-VII) polinomio_gregory_newton
+II) Regressao-linear-DVS
