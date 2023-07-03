@@ -2,14 +2,6 @@
 
 ## Algoritmos a serem testados
 
-I) Escolhe-pontos
+I) Splines-avaliar
 
-II) Splines-naturais
-
-III) Splines-avaliar
-
-IV) Splines-extrapolados
-
-V) coeficientes_polinomio
-
-VII) polinomio_gregory_newton
+II) Splines-extrapolados (Refazer)
