@@ -14,38 +14,25 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{valor} =} interpola (@var{x}, @var{y}, @var{z})
+## @deftypefn {} {@var{Pz} =} polinomio_lagrange (@var{m}, @var{x}, @var{y}, @var{z})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-06-30
+## Created: 2023-05-23
 
-function valor = interpola (x, y, z)
-  n = length(x);
-
-  # Construir matriz do sistema
-  A = ones(n, n);
-  for i = 2:n
-    A(:, i) = x.^(i-1);
-  end
-
-  for i = 1 : size(A, 1)
-    for j = 1 : size(A, 1)
-      if A(i,j) ~= A(j, i)
-        Info1 = 1;
+function Pz = polinomio_lagrange (m, x, y, z)
+  Pz = 0;
+  for i = 1 : m
+    c = 1;
+    d = 1;
+    for j = 1 : m
+      if i ~= j
+        c = c * (z - x(j));
+        d = d * (x(i) - x(j));
       endif
     endfor
+    Pz = Pz + y(i) * c/d;
   endfor
-  [r, Det, Info2] = Cholesky (A);
-  if Info2 || Info1
-    # Decomposição LU
-    r = sol_decomp_LU (A, y);
-  endif
-
-  valor = r(1);
-  for i = 2:n
-      valor = valor + r(i) * z^(i-1);
-  end
 endfunction

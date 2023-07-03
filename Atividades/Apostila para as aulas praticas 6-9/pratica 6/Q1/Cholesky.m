@@ -14,38 +14,38 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{valor} =} interpola (@var{x}, @var{y}, @var{z})
+## @deftypefn {} {@var{A}, @var{Det}, @var{Info} =} Cholesky (@var{A})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-06-30
+## Created: 2023-05-23
 
-function valor = interpola (x, y, z)
-  n = length(x);
-
-  # Construir matriz do sistema
-  A = ones(n, n);
-  for i = 2:n
-    A(:, i) = x.^(i-1);
-  end
-
-  for i = 1 : size(A, 1)
-    for j = 1 : size(A, 1)
-      if A(i,j) ~= A(j, i)
-        Info1 = 1;
+function [A, Det, Info] = Cholesky (A)
+    n = size(A, 1);
+    Info  = 0;
+    Det = 1;
+    for j = 1 : n
+      Soma = 0;
+      for k = 1 : j - 1
+        Soma = Soma + A(j,k)*A(j,k);
+      endfor
+      t = A(j,j) - Soma;
+      if t > 0
+        A(j,j) = sqrt(t);
+        r = 1/A(j,j);
+        Det = Det * t;
+      else
+        Info = j;
+        return;
       endif
+      for i = j+1 : n
+        Soma = 0;
+        for k=1 : j-1
+          Soma = Soma + A(i,k) * A(j,k);
+        endfor
+        A(i,j) = (A(i,j) - Soma) * r;
+      endfor
     endfor
-  endfor
-  [r, Det, Info2] = Cholesky (A);
-  if Info2 || Info1
-    # Decomposição LU
-    r = sol_decomp_LU (A, y);
-  endif
-
-  valor = r(1);
-  for i = 2:n
-      valor = valor + r(i) * z^(i-1);
-  end
 endfunction
