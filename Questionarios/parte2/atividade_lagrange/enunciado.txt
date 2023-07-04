@@ -1,0 +1,22 @@
+Faça um programa que selecione automaticamente na tabela as abscissas dos pontos mais próximos ao valor interpolado para fazer as interpolações apresentadas na tabela abaixo. E faça as interpolações utilizando o método de Lagrange. Deve ser realizada a interpolação quadrática.
+
+
+i	x	y
+0	-7	109
+1	-2	-1
+2	0	-3
+3	2	19
+4	4	65
+5	5	97
+6	6	135
+7	7	179
+8	8	229
+
+Valores a interpolar
+
+j	z
+0	-6
+1	-1
+2	3
+3	5
+4	6

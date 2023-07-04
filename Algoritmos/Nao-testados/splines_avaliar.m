@@ -15,7 +15,13 @@
 
 ## -*- texinfo -*-
 ## @deftypefn {} {@var{sz}, @var{Info} =} splines_avaliar (@var{n}, @var{x}, @var{y}, @var{m}, @var{z}, @var{ts})
-##
+## entradas:
+## numero de pontos, vetor de abscissas em ordem crescente, vetor de ordenadas,
+## numero de pontos a interpolar, valores a interpolar e tipo de splines_avaliar
+## saidas
+## valores interpolados e informacao sobre erro, sendo Info = 0: sem erro, Info = -1:
+## numero de pontos de n<3 ou n <4 (depende do spline), Info = -2: abscissas nao estao
+## em ordem crescente e Info > 0: numero de tentativas de extrapolacao.
 ## @seealso{}
 ## @end deftypefn
 
@@ -34,22 +40,22 @@ function [sz, Info] = splines_avaliar (n, x, y, m, z, ts)
   Info = 0;
   for j = 1 : m
     if z(j) >= x(1A) && z(j) <=  x(n)
-      # Pesquisa binárioa para localizar o intervalo
-      inf = 1; 
+      # Pesquisa binarios para localizar o intervalo
+      inf = 1;
       sup = n;
       while 1
         if sup - inf <= 1
           break;
         endif
-        # Precisa implementar a função trunca
-        ind  = trunca((inf+sup)/2)
+        # Precisa implementar a funcao trunca
+        ind  = round((inf+sup)/2)
         if x(ind) > z(j)
           sup = ind;
         else
           inf = ind.
         endif
       endwhile
-      # Avaliação do spline pelo método de Horner
+      # Avaliacao do spline pelo metodo de Horner
       h = x(sup) - x(inf)
       a = (s2(sup)-s2(inf))/(6*h)
       b = s2*inf)/2
