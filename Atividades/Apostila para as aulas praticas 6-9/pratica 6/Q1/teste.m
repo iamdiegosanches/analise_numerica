@@ -12,7 +12,6 @@ xi = linspace(-1.455, 1.178, 100);
 yi = exp(xi/2).*(xi).^2 - 10;
 plot(xi, yi);
 
-% Cálculo da curva interpoladora
 yi = zeros(size(xi));
 for i = 1:length(xi)
     yi(i) = interpola(x, y, xi(i));
