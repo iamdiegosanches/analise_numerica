@@ -6,10 +6,10 @@ I) Splines-avaliar
 
 II) Splines-extrapolados (Refazer)
 
+III) Matriz-explicativas
+
+IV) Regressao-linear-EN
+
 ## Algoritmos a serem implementados
 
-I) Matriz-explicativas
-
-II) Regressao-linear-EN
-
-II) Regressao-linear-DVS
+I) Regressao-linear-DVS
