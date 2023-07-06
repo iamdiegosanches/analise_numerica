@@ -10,6 +10,4 @@ III) Matriz-explicativas
 
 IV) Regressao-linear-EN
 
-## Algoritmos a serem implementados
-
-I) Regressao-linear-DVS
+V) Regressao-linear-DVS
