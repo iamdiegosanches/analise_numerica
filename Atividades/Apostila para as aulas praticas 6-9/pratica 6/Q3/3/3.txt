@@ -1,0 +1,3 @@
+A precisão do método aumenta com aumento do grau do polinômio. Além do que este método é mais
+barato computacionalmente do que outros que utilizam interpolação utilizando a solução de sistemas
+lineares.

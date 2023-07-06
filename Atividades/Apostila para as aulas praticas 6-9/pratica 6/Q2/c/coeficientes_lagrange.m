@@ -14,25 +14,24 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{Pz} =} polinomio_lagrange (@var{m}, @var{x}, @var{y}, @var{z})
+## @deftypefn {} {@var{retval} =} coeficientes_lagrange (@var{input1}, @var{input2})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-05-23
+## Created: 2023-07-06
 
-function Pz = polinomio_lagrange (m, x, y, z)
-  Pz = 0;
+function coeficientes = coeficientes_lagrange(m, x, y)
+  coeficientes = zeros(1, m);
   for i = 1 : m
-    c = 1;
-    d = 1;
+    produto = [1];
     for j = 1 : m
       if i ~= j
-        c = c * (z - x(j));
-        d = d * (x(i) - x(j));
+        produto = conv(produto, [1, -x(j)]) / (x(i) - x(j));
       endif
     endfor
-    Pz = Pz + y(i) * c/d;
+    coeficientes = coeficientes + y(i) * produto;
   endfor
 endfunction
+
