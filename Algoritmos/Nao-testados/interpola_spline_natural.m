@@ -30,20 +30,20 @@
 function y_new = interpola_spline_natural (x, y, x_new)
   n = length(x);
   [s2, Info] = splines_naturais(n, x, y);
-  # Verifica se foi possível calcular os coeficientes 
+  # Verifica se foi possivel calcular os coeficientes
   if Info ~= 0
-    disp('Erro ao calcular os coeficientes do spline cúbico natural');
+    disp('Erro ao calcular os coeficientes do spline cubico natural');
     return;
   endif
   y_new = zeros(size(x_new));
   for i = 1:length(x_new)
-    # Encontra o intervalo em que x_new(i) está
+    # Encontra o intervalo em que x_new(i) esta
     j = 1;
     # Ajustando o valor de j
     while j < n && x_new(i) > x(j+1)
       j++;
     endwhile
-    # Calcula o valor interpolado de y usando a fórmula do spline cúbico natural
+    # Calcula o valor interpolado de y usando a formula do spline cubico natural
     h = x(j+1) - x(j);
     t = (x_new(i) - x(j)) / h;
     a = (1 - t) * y(j) + t * y(j+1);

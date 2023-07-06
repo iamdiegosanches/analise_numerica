@@ -19,7 +19,7 @@
 ## n: numero de pontos
 ## x: vetor de abscissas em ordem crescente
 ## y: vetor de ordenadas
-## Saída:
+## Saida:
 ## s2: derivadas segundas
 ## Info: informacoes sobre erro:
 ##        Info = 0: nao houve erro
@@ -84,7 +84,7 @@ function [s2, Info] = splines_extrapolados (n, x, y)
   # solcao por substituicoes retroativas
   s2(m+1)=s2(m+1)/d(m);
   for i=m:-1:2
-    s2(i)=(s2(i)-c(i)*s22(i+1))/d(i-1);
+    s2(i)=(s2(i)-c(i)*s2(i+1))/d(i-1);
   endfor
   Ha=x(2)-x(1);
   Hb=x(3)-x(2);
