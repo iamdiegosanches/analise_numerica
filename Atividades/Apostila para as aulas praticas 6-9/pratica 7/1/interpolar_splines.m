@@ -1,4 +1,4 @@
-## Copyright (C) 2023 dgsan
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,21 +14,27 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{retval} =} calcular_interp (@var{input1}, @var{input2})
+## @deftypefn {} {@var{retval} =} interpolar_splines (@var{x}, @var{y})
 ##
 ## @seealso{}
 ## @end deftypefn
 
-## Author: dgsan <dgsan@LAPTOP-3MAB8DDK>
+## Author: Diego Sanches
 ## Created: 2023-07-06
 
-function Pz = calcular_interp(x, y, s2, x_interp)
-  n = length(x);
-  # Calculo de h
-  h = zeros(1, n);
-  for i = 1 : n-1
-    h(i) = x(i+1) - x(i)
-  endfor
-  Pz = 0;
-endfunction
+function interpolar_splines (x, y)
+  n = size(x, 2);
 
+  z = linspace(min(x), max(x), 50);
+
+  sn = splines_avaliar(n, x, y, size(z,2), z, 0);
+  se = splines_avaliar(n, x, y, size(z,2), z, 1);
+
+  # Graficos
+  plot(x, y, 'o');
+  hold on;
+  plot(z, sn, 'r');
+  plot(z, se, 'g');
+  hold off;
+  legend('Pontos', 'Splines Cúbicos Naturais', 'Splines Cúbicos Extrapolados');
+endfunction

@@ -11,8 +11,8 @@ for i = 1:length(roots_p)
 
     if min(x) <= x_root && x_root <= max(x) && abs(f_root) < 1e-6
         break;
-    end
-end
+    endif
+endfor
 
-fprintf('A raiz da fun��o � aproximadamente %.4f\n', x_root);
+fprintf('A raiz da funcaoo 3 aproximadamente %.4f\n', x_root);
 
