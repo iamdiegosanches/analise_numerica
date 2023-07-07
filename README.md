@@ -2,12 +2,8 @@
 
 ## Algoritmos a serem testados
 
-I) Splines-avaliar
+I) Matriz-explicativas
 
-II) Splines-extrapolados (Refazer)
+II) Regressao-linear-EN
 
-III) Matriz-explicativas
-
-IV) Regressao-linear-EN
-
-V) Regressao-linear-DVS
+III) Regressao-linear-DVS
