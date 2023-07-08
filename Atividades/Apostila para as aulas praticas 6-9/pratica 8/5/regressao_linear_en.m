@@ -79,7 +79,7 @@ function [b, r2, s2, AICc, Info]  = regressao_linear_en (n, v, p, ii, x, y)
     Sy2 = Sy2 + y(i)^2;
   endfor
   # Coeficiente de determinacao
-  if ii = 1
+  if ii == 1
     r2 = 1 - S/(Sy2 - (Sxy(1)^2)/n);
   else
     r2 = 1 - S/Sy2;

@@ -14,7 +14,7 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {[@var{b}, @var{r2}, @var{s2}, @var{AlCc}, @var{Info}] =}
+## @deftypefn {} {[@var{b}, @var{r2}, @var{s2}, @var{AICc}, @var{Info}] =}
 ## regressao_linear_dvs (@var{n}, @var{v}, @var{p}, @var{ii}, @var{x}, @var{y})
 ## entradas:
 ## numero de pontos, numero de variaveis explicativas, numero de parametros do modelo
@@ -30,12 +30,12 @@
 ## Author: Diego Sanches
 ## Created: 2023-07-05
 
-function [b, r2, s2, AlCc, Info] = regressao_linear_dvs (n, v, p, ii, x, y)
-  [Matx, Info] = matriz_explicativas(n, v, p, ii, x);
+function [b, r2, s2, AICc, Info] = regressao_linear_dvs (n, v, p, ii, x, y)
+  [MatX, Info] = matriz_explicativas(n, v, p, ii, x);
   if Info ~= 0
     return;
   endif
-  Epsilon = precisao_matrina # ver o algoritmo do Exercicio 1.41
+  Epsilon = precisao_maquina # ver o algoritmo do Exercicio 1.41
   # chamada da rotina para decomposicao em valores singulares refuzida
   [U, Sigma, V] = svd(MatX);
   if Sigma(p,p) < n*Epsilon
@@ -73,12 +73,11 @@ function [b, r2, s2, AlCc, Info] = regressao_linear_dvs (n, v, p, ii, x, y)
   endfor
   # coeficiente de determinacao
   if ii == 1
-    r2 = 1 - S/(Sy2 - (Sy^2)/n)/
+    r2 = 1 - S/(Sy2 - (Sy^2)/n);
   else
     r2 = 1 - S/Sy2;
   endif
   s2 = S/(n-p); # quadrado medio residual
-  AlCc = n * log(S/n) + 2*p*n/(n-p-1) # criterio de informacao de Akaike
-  # Verificar log esta correto
+  AICc = n * log(S/n) + 2*p*n/(n-p-1) # criterio de informacao de Akaike
 endfunction
 
