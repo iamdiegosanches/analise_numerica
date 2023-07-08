@@ -14,7 +14,7 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {[@var{b}, @var{r2}, @var{s2}, @var{AlCc}, @var{Info}] =} regressao_linear_en (@var{n}, @var{v}, @var{p}, @var{ii}, @var{x}, @var{y})
+## @deftypefn {} {[@var{b}, @var{r2}, @var{s2}, @var{AICc}, @var{Info}] =} regressao_linear_en (@var{n}, @var{v}, @var{p}, @var{ii}, @var{x}, @var{y})
 ## emtradas:
 ## numero de pontos, numero de variaveis explicativas, numero de parametros do modelo,
 ## indicacao de intersecao, variaveis explicativas originais e variaveis respostas.
@@ -29,9 +29,9 @@
 ## Author: Diego Sanches
 ## Created: 2023-07-05
 
-function [MatX, Info]  = regressao_linear_en (n, v, p, ii, x)
+function [b, r2, s2, AICc, Info]  = regressao_linear_en (n, v, p, ii, x, y)
   [MatX, Info] = matriz_explicativas(n, v, p, ii, x);
-  if Indo ~= 0
+  if Info ~= 0
     return;
   endif
   for i = 1 : p
@@ -57,14 +57,14 @@ function [MatX, Info]  = regressao_linear_en (n, v, p, ii, x)
     Info = 4;
     return;
   endif
-  t = subst_sucess(p, L, Sxy);
+  t = subst_sucess(L, Sxy);
   for i = 1 : p
     for j = 1 : i
       U(j,i) = L(i,j); # U = transposta de L
     endfor
   endfor
   # estimadores de quadraos minimos dos parametros da equacao de regressao
-  b = subst_retro(p, U, t)
+  b = subst_retro(U, t)
   Info = 0;
   S = 0;
   Sy2 = 0;
@@ -83,6 +83,6 @@ function [MatX, Info]  = regressao_linear_en (n, v, p, ii, x)
     r2 = 1 - S/Sy2;
   endif
   s2 = S/(n-p); # quadrado medio residual
-  AlCc = n*log(S/n) + 2*p*n/(n-p-1); # criterio de informacao Akaike
+  AICc = n*log(S/n) + 2*p*n/(n-p-1); # criterio de informacao Akaike
   # Verificar se o log esta correto
 endfunction
