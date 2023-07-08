@@ -2,8 +2,4 @@
 
 ## Algoritmos a serem testados
 
-I) Matriz-explicativas
-
-II) Regressao-linear-EN
-
-III) Regressao-linear-DVS
+I) Regressao-linear-DVS
