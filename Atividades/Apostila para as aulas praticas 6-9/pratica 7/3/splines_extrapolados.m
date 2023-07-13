@@ -1,4 +1,4 @@
-## Copyright (C) 2023 Alvaro
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Alvaro <Alvaro@DESKTOP-TG63L3N>
+## Author: Diego Sanches
 ## Created: 2023-07-06
 
 function [s2, Info] = splines_extrapolados (n, x, y)

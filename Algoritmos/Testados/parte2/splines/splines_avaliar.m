@@ -1,4 +1,4 @@
-## Copyright (C) 2023 aluno
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -25,13 +25,13 @@
 ## @seealso{}
 ## @end deftypefn
 
-## Author: aluno <aluno@LI1-150814>
+## Author: Diego Sanches
 ## Created: 2023-06-27
 
 function [sz, Info] = splines_avaliar (n, x, y, m, z, ts)
   if ts == 0
     [s2, Info] = splines_naturais(n,x,y);
-  elseif
+  else
     [s2, Info] = splines_extrapolados(n,x,y);
   endif
   if Info < 0

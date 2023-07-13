@@ -1,4 +1,4 @@
-## Copyright (C) 2023 Alvaro
+## Copyright (C) 2023 Diego Sanches
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Alvaro
+## Author: Diego Sanches
 ## Created: 2023-06-27
 
 function [sz, Info] = splines_avaliar (n, x, y, m, z, ts)
