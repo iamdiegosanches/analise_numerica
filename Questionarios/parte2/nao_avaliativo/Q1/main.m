@@ -24,8 +24,6 @@ plot(x,y,'-*g');
 xq = [x(1) x(6) x(end)];
 yq = [y(1) y(6) y(end)];
 
-
-cor = {'*r', '*g', '*b', '*c', '*y', '*m', '*k', 'or', 'og', 'ob', 'oc', 'om', 'ok'};
 [Yinter, MatrizCoef, Conderro] = interpolacao_polinomial(xq, yq, ValInter)
 
 xplot = linspace(x(1),x(end),100);
