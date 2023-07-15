@@ -1,4 +1,4 @@
-## Copyright (C) 2023 Diego Sanches
+## Copyright (C) 2023 Diego Sanches Nere dos Santos
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,28 +14,26 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{qualidade} =} qualidade_aco (@var{dureza}, @var{impureza})
+## Objetivo: Resolver o sistema triangula inferior Ly = Pb pelas substituicoes sucessivas
+## com a matriz L obtida de decomposicao LU com pivotacao parcial
+## @deftypefn {} {@var{y} =} subst_sucess_pivotal (@var{L}, @var{b}, @var{Pivot})
 ##
 ## @seealso{}
 ## @end deftypefn
 
-## Author: Diego Sanches
-## Created: 2023-07-09
+## Author: Diego Sanches Nere dos Santos
+## Created: 2023-05-23
 
-function qualidade = qualidade_aco (dureza, impureza)
-  du = [100;144;188;233;277;322;366;411;456;500];
-  im = [15;23;32;41;50;59;68;77;86;95];
-  x = [du im];
-  qu = [0;11;22;33;44;55;66;77;88;100];
-
-  plot3(du,qu,im, '*b')
-
-  [b, r2, s2, AICc, Info]  = regressao_linear_en (10, 2, 3, 1, x, qu)
-  qualidade = b(1) + b(2)*dureza + b(3)*impureza;
-
-  xp1 = linspace(du(1),du(end),100);
-  xp2 = linspace(im(1),im(end),100);
-  y = b(1) + b(2)*xp1 + b(3)*xp2;
-  hold on
-  plot3(xp1,y,xp2, '-r');
+function y = subst_sucess_pivotal (L, b, Pivot)
+  n = size(L, 1);
+  k = Pivot(1);
+  y(1) = b(k);
+  for i = 2 : n
+    Soma = 0;
+    for j = 1 : i-1
+      Soma = Soma + L(i,j) * y(j);
+    endfor
+    k = Pivot(i);
+    y(i) = b(k) - Soma;
+  endfor
 endfunction

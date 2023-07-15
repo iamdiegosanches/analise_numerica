@@ -14,28 +14,30 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{qualidade} =} qualidade_aco (@var{dureza}, @var{impureza})
+## @deftypefn {} {@var{dureza} =} dureza_aco (@var{diam_furo})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-07-09
+## Created: 2023-07-15
 
-function qualidade = qualidade_aco (dureza, impureza)
-  du = [100;144;188;233;277;322;366;411;456;500];
-  im = [15;23;32;41;50;59;68;77;86;95];
-  x = [du im];
-  qu = [0;11;22;33;44;55;66;77;88;100];
-
-  plot3(du,qu,im, '*b')
-
-  [b, r2, s2, AICc, Info]  = regressao_linear_en (10, 2, 3, 1, x, qu)
-  qualidade = b(1) + b(2)*dureza + b(3)*impureza;
-
-  xp1 = linspace(du(1),du(end),100);
-  xp2 = linspace(im(1),im(end),100);
-  y = b(1) + b(2)*xp1 + b(3)*xp2;
+function dureza = dureza_aco (diam_furo)
+  x = [2.75;3.10;3.45;3.70;4.00;4.30;4.70;4.95;5.20;5.60];
+  y = [495;388;311;269;229;197;183;146;131;111];
+  plot(x, y, 'o')
   hold on
-  plot3(xp1,y,xp2, '-r');
+
+  # Removido o setimo valor da tabela original
+  x = [2.75;3.10;3.45;3.70;4.00;4.30;4.95;5.20;5.60];
+  y = [495;388;311;269;229;197;146;131;111];
+  plot(x, y, 'or')
+  title('Grafico  de dispersao');
+
+  v = 1;
+  p = 3;
+  ii = 1; # Indicacao que a funcao nao passa pela origem
+  [b, r2, s2, AICc, Info]  = regressao_linear_en (9, v, p, ii, x, y)
+
+  dureza = b(1) + b(2)*diam_furo + b(3)*diam_furo^2;
 endfunction

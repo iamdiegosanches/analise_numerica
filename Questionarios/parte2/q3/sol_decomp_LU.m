@@ -14,28 +14,18 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{qualidade} =} qualidade_aco (@var{dureza}, @var{impureza})
+## @deftypefn {} {@var{x} =} sol_decomp_LU (@var{A}, @var{b})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-07-09
+## Created: 2023-06-07
 
-function qualidade = qualidade_aco (dureza, impureza)
-  du = [100;144;188;233;277;322;366;411;456;500];
-  im = [15;23;32;41;50;59;68;77;86;95];
-  x = [du im];
-  qu = [0;11;22;33;44;55;66;77;88;100];
-
-  plot3(du,qu,im, '*b')
-
-  [b, r2, s2, AICc, Info]  = regressao_linear_en (10, 2, 3, 1, x, qu)
-  qualidade = b(1) + b(2)*dureza + b(3)*impureza;
-
-  xp1 = linspace(du(1),du(end),100);
-  xp2 = linspace(im(1),im(end),100);
-  y = b(1) + b(2)*xp1 + b(3)*xp2;
-  hold on
-  plot3(xp1,y,xp2, '-r');
+function x = sol_decomp_LU (A, b)
+  [R, Det, Pivot] = decomposicao_LU(A);
+  L = eye(size(R,1)) + tril(R, -1);
+  U = triu(R);
+  y = subst_sucess_pivotal (L, b, Pivot);
+  x = subst_retro(U, y');
 endfunction
