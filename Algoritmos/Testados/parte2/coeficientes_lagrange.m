@@ -14,8 +14,14 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{retval} =} coeficientes_lagrange (@var{input1}, @var{input2})
-##
+## @deftypefn {} {@var{coeficientes} =} coeficientes_lagrange (@var{m}, @var{x}, @var{y})
+## entradas:
+## m = numero de pontos
+## x = vetor das abscissas
+## y = vetor das ordenadas
+## saida:
+## coeficientes do polinomio de lagrange para a forma
+## coeficientes(1)*x^2 + coeficientes(2)*x + coeficientes(3)
 ## @seealso{}
 ## @end deftypefn
 
