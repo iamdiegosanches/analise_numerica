@@ -14,30 +14,39 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{c} =} coeficientes_polinomio (@var{n}, @var{x}, @var{y})
-## n = grau maximo do polinomio
-## vetores de tamanho n + 1 com abscissas e ordenadas
-## Polinomio da forma b0 + b1*x + b2*x^2 ...
+## @deftypefn {} {@var{A}, @var{Det}, @var{Info} =} Cholesky (@var{A})
+##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-06-23
+## Created: 2023-05-23
 
-function c = coeficientes_polinomio (n, x, y)
-  for i = 1 : n + 1
-    c(i) = y(i);
-  endfor
-  # construcao das diferencas divididas
-  for i = 1 : n
-    for k = n+1 : -1 : i+1
-      c(k) = (c(k) - c(k-1))/(x(k) - x(k-i));
+function [A, Det, Info] = Cholesky (A)
+    n = size(A, 1);
+    Info  = 0;
+    Det = 1;
+    for j = 1 : n
+      Soma = 0;
+      for k = 1 : j - 1
+        Soma = Soma + A(j,k)*A(j,k);
+      endfor
+      t = A(j,j) - Soma;
+      if t > 0
+        A(j,j) = sqrt(t);
+        r = 1/A(j,j);
+        Det = Det * t;
+      else
+        Info = j;
+        disp('A matriz nao e definida positiva');
+        return;
+      endif
+      for i = j+1 : n
+        Soma = 0;
+        for k=1 : j-1
+          Soma = Soma + A(i,k) * A(j,k);
+        endfor
+        A(i,j) = (A(i,j) - Soma) * r;
+      endfor
     endfor
-  endfor
-  # Calculo dos coeficientes
-  for i = n : -1 : 1
-    for k = i : n
-      c(k) = c(k) - c(k+1)*x(i);
-    endfor
-  endfor
 endfunction
