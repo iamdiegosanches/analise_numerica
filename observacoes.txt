@@ -1,2 +1,0 @@
-1) Para usar o algoritmo de gregory-newton as abscissas devem ser igualmente espaçadas
-
