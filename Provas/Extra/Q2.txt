@@ -1,0 +1,8 @@
+Considerando a tabela abaixo, podemos dizer que é possível fazer a interpolação de P_3(-3).
+
+x   y
+-4 -17
+0  -5
+3   8
+
+Verdadeiro
