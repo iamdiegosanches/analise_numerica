@@ -1,0 +1,13 @@
+Você está desenvolvendo um aplicativo de análise de dados para uma loja de artigos esportivos. Na empresa estão precisando de um software que avalie a perspectiva de vendas das camisas de times no próximo ano. É sabido que a quantidade de camisas vendidas depende da quantidade de pontos e da quantidade de vitórias de cada time. Então foi feito o levantamento do número de pontos do time, a quantidade de vitórias e a quantidade de camisas vendidas e está mostrado na tabela baixo:
+
+Vendas Pontos Vitórias
+30       0      0
+580  142.857 714.286
+1130 285.714 142.857
+1680 428.571 214.286
+2230 571.429 285.714
+2780 714.286 357.143
+3330 857.143 428.571
+3880   100      50
+
+Faça uma função que imprima o gráfico de dispersão e determine a quantidade de camisas vendidas dado a quantidade de pontos e vitórias do time. A quantidade de vitórias e pontos deverão ser parâmetros de entrada da função. A função devera imprimir também a curva ajustada e o ponto que usuário entrou no mesmo gráfico.

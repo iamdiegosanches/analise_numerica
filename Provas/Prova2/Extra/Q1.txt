@@ -1,0 +1,26 @@
+Considerando a tabela abaixo, marque a opção que representa a matriz G do dispositivo prático utilizado no método de lagrange mostrado no livro do Frederico Campos
+
+x     y
+-57 -6789
+-22 -1084
+100 -19506
+
+a=[7 -45 -26
+45 -43 -135
+-26 135 -14]
+
+b=[6 -32 -154
+32 -23 -119
+154 119 -145]
+
+c=[9 -25 -192
+25 -22 -132
+192 13 -98]
+
+d=[11 -15 -142
+15 -26 -118
+-142 118 -132 ]
+
+e=[9 -35 -157
+35 -26 -122
+157 122 -148] <- Resposta
