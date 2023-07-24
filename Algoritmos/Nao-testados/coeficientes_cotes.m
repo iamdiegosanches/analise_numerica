@@ -14,7 +14,7 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{Den}, @var{VetC}, @var{Info} =} coeficientes_cotes (@var{n})
+## @deftypefn {} {[@var{Den}, @var{VetC}, @var{Info}] =} coeficientes_cotes (@var{n})
 ## Objetivo:
 ##        Fornecer os parametros da formula geral de Newton-cotes
 ## Parametros de entrada:
@@ -30,6 +30,10 @@
 
 ## Author: PID UFOP <PID UFOP@OP-151234>
 ## Created: 2023-07-20
+
+# Obs.:
+# falta a função resto
+
 
 function [Den, VetC, Info] = coeficientes_cotes (n)
   if n < 1 || n > 10
