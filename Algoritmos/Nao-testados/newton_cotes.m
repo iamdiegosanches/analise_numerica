@@ -36,7 +36,7 @@
 ## Created: 2023-07-24
 
 # Obs.:
-# nao sei o que e f(x) e nao tenho a funcao resto
+# não sei o que é f(x) e não tenho a função resto
 
 function [Integral, Info] = newton_cotes (a, b, n, m)
   Integral = 0;
@@ -55,7 +55,7 @@ function [Integral, Info] = newton_cotes (a, b, n, m)
   j = 0;
   for i = 0 : m
     x = a + i*h;
-    y = f(x); 
+    y = f(x);
     j = j + 1;
     k = c(j);
     if resto(i,n) == 0 && i~=0 && i~=m
