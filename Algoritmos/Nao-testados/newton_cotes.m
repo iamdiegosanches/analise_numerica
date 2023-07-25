@@ -16,13 +16,13 @@
 ## -*- texinfo -*-
 ## @deftypefn {} {[@var{Integral}, @var{Info}] =} newton_cotes (@var{a}, @var{b}, @var{n}, @var{m})
 ## 
-## Objetivo: Integrar uma função pela fórmula de Newton-Cotes
+## Objetivo: Integrar uma funÃ§Ã£o pela fÃ³rmula de Newton-Cotes
 ## Entrada:
 ##      a: limite inferior
 ##      b: limite superior 
-##      n: grau do polinômio
+##      n: grau do polinÃ´mio
 ##      m: numero de subintervalos
-## Saída:
+## SaÃ­da:
 ##      Integral: valor da integral
 ##      Info: Informacao sobre consistencia, sendo:
 ##             Info = 0 -> sem erro
@@ -36,14 +36,13 @@
 ## Created: 2023-07-24
 
 # Obs.:
-# não sei o que é f(x) e não tenho a função resto
-
+# nao sei o que e f(x) e nao tenho a funcao resto
 
 function [Integral, Info] = newton_cotes (a, b, n, m)
   Integral = 0;
   Info = 0;
   # Coeficientes de Cotes
-  [d,c,Info] = coeficientes_cotes(n)
+  [d,c,Info] = coeficientes_cotes(n);
   # consistencia dos parametros
   if resto(m,n)~=0 || m<0
     Info = Info - 10;
@@ -59,11 +58,11 @@ function [Integral, Info] = newton_cotes (a, b, n, m)
     y = f(x); 
     j = j + 1;
     k = c(j);
-    if resto(i,n) = 0 && i~=0 && i~=m
+    if resto(i,n) == 0 && i~=0 && i~=m
       k = k + k;
       j = 1;
     endif
-    Integral = Integral +y*k;
+    Integral = Integral + y*k;
   endfor
   Integral = n*h/d*Integral;
 endfunction
