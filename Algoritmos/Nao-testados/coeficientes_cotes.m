@@ -32,7 +32,7 @@
 ## Created: 2023-07-20
 
 # Obs.:
-# falta a função resto
+# falta a funÃ§Ã£o resto
 
 
 function [Den, VetC, Info] = coeficientes_cotes (n)
@@ -55,6 +55,7 @@ function [Den, VetC, Info] = coeficientes_cotes (n)
   c(1) = 1;
   c(2) = 1;
   c(3) = 4;
+  c(4) = 1;
   c(5) = 3;
   c(6) = 7;
   c(7) = 32;
@@ -80,7 +81,7 @@ function [Den, VetC, Info] = coeficientes_cotes (n)
   c(27) = 1080;
   c(28) = 19344;
   c(29) = 5778;
-  c(30 = 16067;
+  c(30) = 16067;
   c(31) = 106400;
   c(32) = -48525;
   c(33) = 272400;
