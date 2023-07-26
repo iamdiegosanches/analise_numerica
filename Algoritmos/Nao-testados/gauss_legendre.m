@@ -14,13 +14,13 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {[@var{integral}, @var{Info}] =} gauss_legendre (@var{a}, @var{b}, @var{n})
+## @deftypefn {} {[@var{integ}, @var{Info}] =} gauss_legendre (@var{a}, @var{b}, @var{n})
 ## Entradas:
 ## a = limite inferior
 ## b = limite superior de integracao
 ## n = numero de pontos (n>=1)
 ## Saidas:
-## integral: valor da integral
+## integ: valor da integral
 ## Info = informacao sobre consistencia e convergencia
 ## Info = -1 -> n<1
 ## Info = 0 -> sem erro
@@ -31,20 +31,20 @@
 ## Author: Diego Sanches
 ## Created: 2023-07-24
 
-function [integral, Info] = gauss_legendre (a, b, n)
+function [Integ, Info] = gauss_legendre (a, b, n)
   # calculo das abscissas e pesos
   [T, W, Info] = gauss_legendre_abspes(n);
   if Info ~= 0 # n < 1 ou zeros nao convergiram
     return;
   endif
   # calculo da integral
-  Integral = 0;
+  Integ = 0;
   Info = 0;
   ba2 = (b-a)/2;
   for i = 1 : n
     x = a + ba2 * (T(i)+1);
-    y = f(x); # avaliar a funcao integrando em x
-    Integral = Integral + y * W(i);
+    y = 1/log(x); # avaliar a funcao integrando em x
+    Integ = Integ + y * W(i);
   endfor
-  Integral = ba2 * Integral;
+  Integ = ba2 * Integ;
 endfunction

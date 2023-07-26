@@ -27,7 +27,11 @@
 ## Author: Diego Sanches
 ## Created: 2023-07-23
 
+# Nao sei o que e ingama
+
 function [T, W, Info] = gauss_legendre_abspes (n)
+  T = [];
+  W = [];
   if n < 1
     Info = -1;
     return;
@@ -35,7 +39,7 @@ function [T, W, Info] = gauss_legendre_abspes (n)
   Toler = 10^(-15);
   IterMax = 30; # toleracncia e numero maximo de iteracoes;
   Info = 0;
-  m = round(n/8);
+  m = floor(n/2);
   pi8 = 3.141592653589793;
   # os zeros sao simetricos, calculam-se apenas os positivos
   for i = 1 : m
@@ -54,7 +58,7 @@ function [T, W, Info] = gauss_legendre_abspes (n)
         Pz = ((2*k - 1)*z*p1 - (k-1)*p0)/k;
       endfor
       DPz = n*(p1-z*Pz)/(1-z^2);
-      if abs(delta) <= Toler || Itermax == Iter
+      if abs(delta) <= Toler || IterMax == Iter
         break;
       endif
       delta = Pz/DPz;
@@ -71,13 +75,13 @@ function [T, W, Info] = gauss_legendre_abspes (n)
       T(i) = 0;
       T(n+1-i) = 0;
       W(i) = 0;
-      W(b+1-i) = 0;
+      W(n+1-i) = 0;
       Info = Info + 1;
     endif
   endfor
   # o zero central do polinomio de Legendre de grau impar e nulo
-  if (n%2) ~= 0
+  if resto(n,2) ~= 0
     T(m+1) = 0;
-    W(m+1) = pi8/2 * exp(Ingama((n+1)/2) - Ingama(n/2 + 1))^2;
+    W(m+1) = pi8/2 * exp(lgamma((n+1)/2) - lgamma(n/2 + 1))^2;
   endif
 endfunction
