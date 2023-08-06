@@ -14,37 +14,21 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {[@var{integ}, @var{Info}] =} gauss_legendre (@var{a}, @var{b}, @var{n})
+## @deftypefn {} {@var{y} =} horner (@var{n}, @var{c}, @var{a})
 ## Entradas:
-## a = limite inferior
-## b = limite superior de integracao
-## n = numero de pontos (n>=1)
-## Saidas:
-## integ: valor da integral
-## Info = informacao sobre consistencia e convergencia
-## Info = -1 -> n<1
-## Info = 0 -> sem erro
-## Info = k: k zeros nao convergiram
+## grau, coeficientes e abscissa onde será avaliado, sendo c tal que
+## P(x) = c(1)*x^n + c(2)*x^n-1 + ... + c(n)*x + c(n+1)
+## Saida:
+## Ordanada P(a)
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-07-24
+## Created: 2023-07-27
 
-function [Integ, Info] = gauss_legendre (a, b, n)
-  # calculo das abscissas e pesos
-  [T, W, Info] = gauss_legendre_abspes(n);
-  if Info ~= 0 # n < 1 ou zeros nao convergiram
-    return;
-  endif
-  # calculo da integral
-  Integ = 0;
-  Info = 0;
-  ba2 = (b-a)/2;
-  for i = 1 : n
-    x = a + ba2 * (T(i)+1);
-    y = 1/log(x); # avaliar a funcao integrando em x
-    Integ = Integ + y * W(i);
+function y = horner (n, c, a)
+  y = c(1);
+  for i = 2 : n + 1
+    y = y*a + c(i);
   endfor
-  Integ = ba2 * Integ;
 endfunction

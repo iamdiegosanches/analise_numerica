@@ -28,16 +28,16 @@
 ## Author: Diego Sanches
 ## Created: 2023-07-24
 
-function [Integral, Delta, Iter, Info] = gauss_legendre_iterativo (a, b, Toler, IterMax)
+function [Integral, Delta, Iter, Info] = gauss_legendre_iterativo (a, b, Toler, IterMax, f)
   Iter = 1;
   n1 = 5;
   n2 = 8;
-  [Int, Info] = gauss_legendre(a, b, n2);
-  # calculos sicessivos da integral
+  [Int, Info] = gauss_legendre(a, b, n2, f);
+  # calculos sucessivos da integral
   while 1
     Iter = Iter + 1;
     n = n1 + n2;
-    [Integral, Info] = gauss_legendre(a, b, n);
+    [Integral, Info] = gauss_legendre(a, b, n, f);
     if Integral ~= 0
       Delta = abs((Integral - Int)/Integral);
     else
@@ -56,5 +56,4 @@ function [Integral, Delta, Iter, Info] = gauss_legendre_iterativo (a, b, Toler, 
   else
     Info = 1;
   endif
-
 endfunction
