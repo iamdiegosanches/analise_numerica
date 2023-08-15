@@ -25,7 +25,7 @@
 ## Author: Diego Sanches
 ## Created: 2023-08-07
 
-function [VetX, VetY, DifY] = dp54 (a, b, y0, m)
+function [VetX, VetY, DifY] = dp54 (a, b, y0, m, f)
   a21 = 1/5;
   a31 = 3/40;
   a32 = 9/40;
@@ -54,7 +54,7 @@ function [VetX, VetY, DifY] = dp54 (a, b, y0, m)
   bc7 = 1/40;
   c2 = 1/5;
   c3 = 3/10;
-  c4 * 4/5;
+  c4 = 4/5;
   c5 = 8/9;
   c6 = 1;
   c7 = 1;
@@ -68,17 +68,18 @@ function [VetX, VetY, DifY] = dp54 (a, b, y0, m)
     x = xt; y = yt;
     k1 = f(x,y); # avaliar f(x,y)
     x = xt + c2*h; y = yt + a21*k1*h;
-    k2 = f(x.y);
-    x = xt + c3*h; y = yt + (a31*k + a32*k2)*h;
+    k2 = f(x,y);
+    x = xt + c3*h; y = yt + (a31*k1 + a32*k2)*h;
     k3 = f(x,y);
     x = xt + c4*h; y = yt + (a41*k1 + a42*k2 + a43*k3)*h;
     k4 = f(x,y);
     x = xt + c5*h; y = yt + (a51*k1 + a52*k2 + a53*k3 + a54*k4)*h;
     k5 = f(x,y);
-    x = xy + c5*h; y = yt + (a51*k1 + a52*k2 + a53*k3 + a54*k4)*h;
+    x = xt + c6*h; y = yt + (a61*k1 + a62*k2 + a63*k3 + a64*k4 + a65*k5)*h;
     k6 = f(x,y);
     x = xt + c7*h; y = yt + (a71*k1 + a73*k3 + a74*k4 + a75*k5 + a76*k6)*h;
     k7 = f(x,y);
+    xt = a + i*h;
     # aproximacao de ordem 4: coeficientes bcj(=bj)
     y4t = yt + h*(bc1*k1 + bc3*k3 + bc4*k4 + bc5*k5 + bc6*k6 + bc7*k7);
     # aproximacao de ordem 5: coeficientes bj = a7j

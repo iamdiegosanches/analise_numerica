@@ -14,37 +14,29 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{retval} =} rk4 (@var{input1}, @var{input2})
-## Objetivo: Resolver um PVI pelo método de Runge-Kutta de ordem 4
-## Entradas: limite inferior, limite superior, valor inicial e numero de subintervalos
-## Saidas: abscissas e solucao do PVI
+## @deftypefn {} {@var{retval} =} Euler (@var{input1}, @var{input2})
+## Entradas:
+## limite inferior, limite superior, valor inicial e numero de subintervalos
+## Saidas:
+## abscissas e solucao do PVI
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-08-07
+## Created: 2023-08-14
 
-function [VetX, VetY] = rk4 (a, b, y0, m, f)
-  h = (b - a)/m;
-  xt = a;
-  yt = y0;
-  VetX(1) = xt;
-  VetY(1) = yt;
+function [VetX, VetY] = Euler (a, b, y0, m, f)
+  h = (b-a)/m;
+  x = a;
+  y = y0;
+  VetX(1) = x;
+  VetY(1) = y;
+  fxy = f(x,y); # avaliar f(x,y) em x = x0 e y = y0
   for i = 1 : m
-    x = xt;
-    y = yt;
-    k1 = f(x,y); # avaliar f(x,y)
-    x = xt + h/2;
-    y = yt + h/2*k1;
-    k2 = f(x,y); # avaliar f(x,y)
-    y = yt + h/2*k2;
-    k3 = f(x,y); # avaliar f(x,y)
-    x = xt + h;
-    y = yt + h*k3;
-    k4 = f(x,y); # avaliar f(x,y)
-    xt = a + i*h;
-    yt = yt + h/6*(k1 + 2*(k2 + k3) + k4);
-    VetX(i+1) = xt;
-    VetY(i+1) = yt;
+    x = a + i*h;
+    y = y + h*fxy;
+    fxy = f(x,y);
+    VetX(i+1) = x;
+    VetY(i+1) = y;
   endfor
 endfunction

@@ -14,37 +14,21 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{retval} =} rk4 (@var{input1}, @var{input2})
-## Objetivo: Resolver um PVI pelo método de Runge-Kutta de ordem 4
-## Entradas: limite inferior, limite superior, valor inicial e numero de subintervalos
-## Saidas: abscissas e solucao do PVI
+## @deftypefn {} {@var{y} =} horner (@var{n}, @var{c}, @var{a})
+## Entradas:
+## grau, coeficientes e abscissa onde será avaliado, sendo c tal que
+## P(x) = c(1)*x^n + c(2)*x^n-1 + ... + c(n)*x + c(n+1)
+## Saida:
+## Ordanada P(a)
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-08-07
+## Created: 2023-07-27
 
-function [VetX, VetY] = rk4 (a, b, y0, m, f)
-  h = (b - a)/m;
-  xt = a;
-  yt = y0;
-  VetX(1) = xt;
-  VetY(1) = yt;
-  for i = 1 : m
-    x = xt;
-    y = yt;
-    k1 = f(x,y); # avaliar f(x,y)
-    x = xt + h/2;
-    y = yt + h/2*k1;
-    k2 = f(x,y); # avaliar f(x,y)
-    y = yt + h/2*k2;
-    k3 = f(x,y); # avaliar f(x,y)
-    x = xt + h;
-    y = yt + h*k3;
-    k4 = f(x,y); # avaliar f(x,y)
-    xt = a + i*h;
-    yt = yt + h/6*(k1 + 2*(k2 + k3) + k4);
-    VetX(i+1) = xt;
-    VetY(i+1) = yt;
+function y = horner (n, c, a)
+  y = c(1);
+  for i = 2 : n + 1
+    y = y*a + c(i);
   endfor
 endfunction
