@@ -15,11 +15,11 @@
 
 ## -*- texinfo -*-
 ## @deftypefn {} {[@var{Integral}, @var{Info}] =} newton_cotes (@var{a}, @var{b}, @var{n}, @var{m})
-## 
+##
 ## Objetivo: Integrar uma função pela fórmula de Newton-Cotes
 ## Entrada:
 ##      a: limite inferior
-##      b: limite superior 
+##      b: limite superior
 ##      n: grau do polinômio
 ##      m: numero de subintervalos
 ## Saída:
@@ -62,4 +62,6 @@ function [Integral, Info] = newton_cotes (a, b, n, m)
     Integral = Integral + y*k;
   endfor
   Integral = n*h/d*Integral;
+  xintervalo=linspace(a,b,100);
+  plot(xintervalo,f(xintervalo),'r',x1,y1,'-bo')
 endfunction

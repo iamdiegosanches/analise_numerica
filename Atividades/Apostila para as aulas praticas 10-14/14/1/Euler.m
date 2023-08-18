@@ -14,21 +14,29 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{y} =} horner (@var{n}, @var{c}, @var{a})
+## @deftypefn {} {@var{retval} =} Euler (@var{input1}, @var{input2})
 ## Entradas:
-## grau, coeficientes e abscissa onde será avaliado, sendo c tal que
-## P(x) = c(1)*x^n + c(2)*x^n-1 + ... + c(n)*x + c(n+1)
-## Saida:
-## Ordanada P(a)
+## limite inferior, limite superior, valor inicial e numero de subintervalos
+## Saidas:
+## abscissas e solucao do PVI
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: Diego Sanches
-## Created: 2023-07-27
+## Created: 2023-08-14
 
-function y = horner (n, c, a)
-  y = c(1);
-  for i = 2 : n + 1
-    y = y*a + c(i);
+function [VetX, VetY] = Euler (a, b, y0, m, f)
+  h = (b-a)/m;
+  x = a;
+  y = y0;
+  VetX(1) = x;
+  VetY(1) = y;
+  fxy = f(x,y); # avaliar f(x,y) em x = x0 e y = y0
+  for i = 1 : m
+    x = a + i*h;
+    y = y + h*fxy;
+    fxy = f(x,y);
+    VetX(i+1) = x;
+    VetY(i+1) = y;
   endfor
 endfunction

@@ -1,0 +1,1 @@
+Os grafcios mostram como as funcoes deixam de existir em alguns pontos, e voltam a existir normalmente, logo os intervalos encontrados estao corretos
