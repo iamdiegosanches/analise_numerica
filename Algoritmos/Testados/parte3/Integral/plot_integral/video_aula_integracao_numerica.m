@@ -1,6 +1,6 @@
 %inicializacoes
-x = linspace(1,61000); %crie um vetor de pontos x
-y = x.sqrt(e.^x); %calcula os valores de y
+x = linspace(1,6,1000); %crie um vetor de pontos x
+y = x./sqrt(e.^x); %calcula os valores de y
 tamanho_marca = 10; %Define o tamanho do marcador do grafico
 tamanho_linha = 5; %Define o tamanho das linhas do grafico
 
@@ -10,13 +10,13 @@ set(gcf, 'Position', get(0, 'Screensize')); %Maximiza a figura
 h1 = plot(x,y,'*r'); %Imprime o grafico da funcao
 xlabel('X');
 ylabel('Y');
-title('Grafocp da funcao');
+title('Grafico da funcao');
 set(h1, 'markersize', tamanho_marca);
 h = gca();
 set(h,'fontsize',15); %Determina a fonte do grafico
 legend('Funcao'); %Cria a legenda no grafico
 pause(0.1);
-saveas(gcf,'Graficos/funcao_integracao.png) %Salva o grafico em uma figura
+saveas(gcf,'Graficos/funcao_integracao.png') %Salva o grafico em uma figura
 hold on
 input('Pressione enter para continuar');
 

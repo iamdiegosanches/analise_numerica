@@ -14,7 +14,7 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {[@var{Integral}, @var{Info}] =} newton_cotes (@var{a}, @var{b}, @var{n}, @var{m})
+## @deftypefn {} {[@var{Integral}, @var{Info}] =} newton_cotes (@var{a}, @var{b}, @var{n}, @var{m}, @var{f})
 ##
 ## Objetivo: Integrar uma função pela fórmula de Newton-Cotes
 ## Entrada:

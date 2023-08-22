@@ -4,7 +4,7 @@ clc
 # A
 disp('');
 disp('Letra A');
-f = @(x)-3*x.^3 + 1.5*x.^2 + 5;
+f = @(x)(-3*x.^3 + 1.5*x.^2 + 5);
 
 [Integral, Info] = newton_cotes(-1, 2, 1, 18, f)
 [Integral, Info] = newton_cotes(-1, 2, 2, 18, f)
