@@ -14,7 +14,7 @@ Atenção: Ainda não foram organizadas todas as questões na documentação
 [Questões fechadas com respostas](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/questoes_fechadas)
 
 ## cosseno
-[cosseno](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/cosseno)
+[Solução](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/cosseno)
 
 Faça um programa que leia o valor de x e do número n de termos para a expressão abaixo através do teclado e mostre seu valor calculado com estes n termos
 
@@ -22,7 +22,7 @@ cos(x) = 1 - x^2/2! + x^4/4! - x^6/6! ...
 
 ## Quatro valore I, A, B e C
 
-[funcao_valores_I](https://github.com/iamdiegosanches/analise_numerica/blob/main/Questionarios/parte1/funcao_valores_I/README.md)
+[Solução](https://github.com/iamdiegosanches/analise_numerica/blob/main/Questionarios/parte1/funcao_valores_I/README.md)
 
 Faça uma função que receba quatro valores I, A, B e C. Todos os valores são inteiros. Escreva os números A, B e C obedecendo à tabela a seguir. Suponha que o valor digitado para I seja uim valor válido, ou seja, 1, 2 ou 3, e os números A, B e C digitados devem ser verificados se são diferentes um do outro, se não deve ser solicitado ao usuário para entrar com outros números.
 
@@ -34,19 +34,19 @@ Faça uma função que receba quatro valores I, A, B e C. Todos os valores são 
 
 ## Gráfico de função
 
-[grafico_func_exp(3x)-5](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/grafico_func_exp(3x)-5)
+[Solução](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/grafico_func_exp(3x)-5)
 
 Faça o gráfico da função y = e^3x - 5, no invervalo [-5,-1]. O marcador deverá ser asterisco magenta. No eixo x deverá ter o rótulo 'tempo' e no eixo y 'concentração'
 
 ## Traço de 1000 matrizes
 
-[traço de 1000 matrizes](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/traco_1000_matrizes)
+[Solução](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/traco_1000_matrizes)
 
 Lembrando que o traço é simplesmente o somatório dos termos da diagonal principal faça um programa que teste no mínimo 1000 pares de matrizes criadas aleatoriamente que demonstr que traço(AB) = traço(BA). O seu programa deverá mostrar ao final se a propriedade foi válida ou não.
 
 ## Propriedade da transposta de 1000 matrizes
 
-[arquivo](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/verificar_propriedade_transposta)
+[Solução](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/verificar_propriedade_transposta)
 
 Faça um progrma que teste com 1000 pares de matrizes criadas aleatoriamente a propriedade (A + B)^T = A^T + B^T . O programa deverá informar ao usuário se a propriedade foi válida para os 1000 pares de matrizes.
 
