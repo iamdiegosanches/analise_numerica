@@ -1,6 +1,6 @@
 # Questões presentes
 
-Atenção: Ainda não foram organizadas todas as questões na documentação
+Atenção: Ainda não foram organizadas todas as questões na documentação.
 
 ## Não avaliativos
 [introdução ao octave com gráficos](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/Introducao_ao_octave_graficos_n_avaliativo)
@@ -50,6 +50,12 @@ Lembrando que o traço é simplesmente o somatório dos termos da diagonal princ
 
 Faça um progrma que teste com 1000 pares de matrizes criadas aleatoriamente a propriedade (A + B)^T = A^T + B^T . O programa deverá informar ao usuário se a propriedade foi válida para os 1000 pares de matrizes.
 
+## Calcular o quadrado de uma matriz aleatória
+
+[Solução](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/quadrado_matriz)
+
+Crie uma função que peça ao usuário para digitar a ordem de uma matriz quadrada, crie uma matriz aleatória calcule e mostre o quadrado desta matriz. (Obs. Não é o quadrado de cada termo e sim o quadrado da matriz).
+
 ## Problem do ginásio de voley
 
 [Solução](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/voley_sistema)
@@ -71,3 +77,28 @@ iii) SAE 3210 - 1,32% Ni, 4,19% Cr, 0,13% C.
 A) Esta indústria irá fundir 3 peças, uma de cada tipo descrito acima, para formar uma barra maior de um novo tipo de aço. A peça depois de fundida ficará com 10kg e o aço será o 3420 com 4,36% Ni, 4,47% Cr e 3,06% C. Quais as quantidades em kg das peças de aço 3105, 3210 3330deverão ser utilizadas?
 
 Resolva o problema utilizando o método de decomposição LU com pivotação.
+
+## Questões que envolvem sistemas lineares por decomposição LU
+
+[Solução](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/questao_sistema_LU)
+
+Faça um programa que verifique se o sistema linear tem solução, caso tenha o programa deve verificar se é possível resolver pelo método proposto se sim deve determinar a solução, se não deve informar ao usuário que não é possível resolver o sistema pelo método selecionado.
+LU com pivotação
+
+## Questões que envolvem sistemas lineares pelo algoritmo de Cholesky
+
+[Soluções](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/questoes_sistema_cholesky)
+
+Faça um programa que verifique se o sistema linear tem solução, caso tenha o programa deve verificar se é possível resolver pelo método proposto se sim deve determinar a solução, se não deve informar ao usuário que não é possível resolver o sistema pelo método selecionado.
+Cholesky
+
+ou
+
+Se o terno (x0,y0,z0) é solução do sistema abaixo, então faça um programa que determine e mostre para o usuário o valor 3x1 + 5x2 + 4*x3, utilziando o método de Cholesky para resolver o sistema linear. 44.88 X1 -17.65 X2 + 18.23 X3 = -10.60 -17.65 X1 +43.80 -16.15 X3 = -15.46 18.23 X1 -16.15 X2 + 44.38 X3 = 3.04
+
+## Questões que envolvem sistemas lineares pelo algoritmo de Gauss-seidel
+
+[Soluções](https://github.com/iamdiegosanches/analise_numerica/tree/main/Questionarios/parte1/questao_sistema_Gauss_Seidel)
+
+Faça um programa que verifique se o sistema linear tem solução, caso tenha o programa deve verificar se é possível resolver pelo método proposto se sim deve determinar a solução, se não deve informar ao usuário que não é possível resolver o sistema pelo método selecionado.
+Gauss-Seidel
